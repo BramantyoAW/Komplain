@@ -36,7 +36,8 @@
 			}
 		}
 
-		
+	
+
 		//cek id user jika sudah ada belum
 		public function check_id_user_exist($id_user){
 			$query = $this->db->get_where('user', array('id_user' => $id_user));
@@ -47,17 +48,30 @@
 			}
 		}
 		
-		// Log user in
-		public function login($id_user, $password){
-			// Validate
-			$this->db->where('id_user', $id_user);
-			$this->db->where('password', $password);
-			$result = $this->db->get('user');
-				if($result->num_rows() == 1){
-					return $result->row(0)->id_user;
-				} else {
-					return false;
-				}
+		// // Log user in
+		// public function login($id_user, $password){
+		// 	// Validate
+		// 	$this->db->where('id_user', $id_user);
+		// 	$this->db->where('password', $password);
+		// 	$result = $this->db->get('user');
+		// 		if($result->num_rows() == 1){
+		// 			return $result->row(0)->nama;
+		// 		} else {
+		// 			return false;
+		// 		}
+		// }
+
+		//Log User In
+		public function getresult($id_user, $password){
+				// Validate
+				$this->db->where('id_user', $id_user);
+				$this->db->where('password', $password);
+				$result = $this->db->get('user');
+					if($result->num_rows() == 1){
+						return $result;
+					} else {
+						return false;
+					}
 		}
 
     }

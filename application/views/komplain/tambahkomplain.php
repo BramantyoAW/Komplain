@@ -8,9 +8,9 @@
     <?php echo form_open_multipart('komplain/tambahkomplain');?>
     <form>
           <div class="control-group" >
-              <label >Nama Pengirim</label>
+              <label >Nomor Induk Mahasiswa Pengirim</label>
               <div class="controls">
-                <input type="text" class='form-control' name="id_user" placeholder="">
+                <input type="text" class='form-control' name="id_user" value="<?php echo $this->session->userdata("id_user"); ?>" readonly>
               </div>
             </div> <br>
             <div class="control-group" >
@@ -66,7 +66,7 @@
               </div><br>
             </div>
             <div>
-              <button type="submit" class="btn btn-danger">Tambah Komplain</button>
+              <button type="submit" class="btn btn-success">Tambah Komplain</button>
             </div>
   </form>
 

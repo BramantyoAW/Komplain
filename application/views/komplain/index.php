@@ -1,4 +1,7 @@
 <br>
+<?php $this->session->userdata('user_loggedin'); ?>
+<!-- <h2>Hai, <?php echo $this->session->userdata("nama"); ?></h2> -->
+
 <h2><b>Daftar Komplain</b></h2>
 <br>
             <table class="table">

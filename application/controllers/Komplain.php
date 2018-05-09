@@ -2,12 +2,15 @@
     class Komplain extends CI_Controller{
         function __construct(){
             parent::__construct();
+            if($this->session->userdata('id_role') != 3){
+                redirect('users/login');
+            }
             $this->load->helper(array('url'));
             $this->load->model('komplain_model');
         }
 
+        
         public function index($id_kom = NULL){
-
          $this->load->database();
          $jumlah_data = $this->komplain_model->jumlah_data();
          $this->load->library('pagination');
@@ -28,6 +31,9 @@
             $this->load->view('templates/header');
             $this->load->view('komplain/index', $data);
             $this->load->view('templates/footer');
+
+            // $this->session->set_flashdata('user_loggedin');
+            
         }
 
         //Menambahkan Data Controllers
@@ -78,14 +84,13 @@
 
                 //setting pesan
                 $this->session->flashdata('komplain_created','Komplain Berhasil Ditambah');
-                
 
                 redirect('komplain');
             } 
         }
 
         public function detailkomplain($id_kom = NULL){
-
+            
            $data['komplain'] = $this->komplain_model->get_kom($id_kom);
            //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
             

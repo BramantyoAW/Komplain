@@ -15,59 +15,81 @@
             <!-- atas ini ck editor buat form -->
             <!-- <script src="css2/jquery.min.js"></script>
             <script src="css2/popper.min.js"></script>
-            <script src="css2/bootstrap.min.js"></script>
-             INI SEMUA MODAL. GA JADI -->
+            <script src="css2/bootstrap.min.js"></script> -->
         </head>
     <body>
+
+
+    <!-- navbar 1 (KIRI)-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-white">
     <a class="navbar-brand" href="<?php echo base_url();?>kompsay">
         <img src="<?php echo base_url();?>.\images\Logo.png" alt="logo" width="120" heigh="60"></a>
         <!-- <div class='navbar-right' style="font-family:'Segoe UI',Arial,sans-serif">KENYAMANAN KEAMANAN UNTUK MEMAKSIMALKAN</div> -->
         </div>
+        <ul class="navbar-nav mr-auto">
+        <li class="navbar-item active"></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" >
+        <li>Halo, <?php echo $this->session->userdata("nama");?>  <br> 
+         <a href="<?php echo base_url();?>users/logout">Log Out </a>
+        </li>
+        </ul>
     </nav>
+
+    <!-- navbar 2 (KIRI)-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
-        
+        <!-- mahasiswa -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo base_url();?>komplain"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo base_url();?>unit"><b>Daftar Komplain(UNIT)</b></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo base_url();?>kompsay"><b>Komplain Saya</b></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo base_url();?>dashboard"><b>Visualisasi</b></a>
-            </li>
+          <?php if($this->session->userdata('id_role') != 3): ?>
+          <?php else:?>
+              <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url();?>komplain"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url();?>kompsay" ><b>Komplain Saya</b></a>
+              </li>
+            <?php endif; ?>
+          <!-- Unit -->
+          <?php if($this->session->userdata('id_role') != 2): ?>
+          <?php else: ?>
+          <li class="nav-item active">
+               <a class="nav-link" href="<?php echo base_url();?>unit"><b>Daftar Komplain(UNIT)</b></a>
+          </li>
+          <?php endif; ?>
+          <!-- admin -->
+          <?php if($this->session->userdata('id_role') != 1): ?>
+          <?php else: ?>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?php echo base_url();?>komplain"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?php echo base_url();?>katkomplain"><b>Kategori Komplain</b></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?php echo base_url();?>dashboard" ><b>Visualisasi</b></a>
+          </li>
+          <?php endif; ?>
           </ul>
           <div>
+          <!-- Navbar Kanan -->
           <ul class="nav navbar-nav navbar-right">
-        
-                <li class="nav-item active">
-                  <a class="nav-link" href="<?php echo base_url();?>katkomplain"><b>Kategori Komplain</b></a>
-                </li>
+            <?php if($this->session->userdata('id_role') != 3) : ?>
+          <?php else: ?>
                 <li class="nav-item active">
                   <a class="nav-link" href="<?php echo base_url();?>komplain/tambahkomplain"><b>Buat Komplain</b></a>
                 </li >
+            <?php endif; ?>
                 <li class="nav-item active">
-                  <a class="nav-link" href="<?php echo base_url();?>users/logout"><b>Log Out</b></a>
+                <a class="nav-link" href="<?php echo base_url();?>users/login" hidden><b>Login</b></a>
                 </li>
-              
-            <?php if(!$this->session->userdata('user_loggedin')) : ?>
+                <!-- log out dah jadi di header atas, hidden -->
                 <li class="nav-item active">
-                  <a class="nav-link" href="<?php echo base_url();?>users/register" hidden><b>Register</b></a>
+                  <a class="nav-link" href="<?php echo base_url();?>users/logout"hidden><b>Log Out</b></a>
                 </li >
-          
-                <li class="nav-item active">
-                  <a class="nav-link" href="<?php echo base_url();?>users/login"><b>Login</b></a>
-                </li >
-                <?php endif; ?>
           </ul>
           </div>
         </div>

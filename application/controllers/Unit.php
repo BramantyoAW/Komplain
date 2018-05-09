@@ -2,12 +2,14 @@
     class Unit extends CI_Controller{
         function __construct(){
             parent::__construct();
+            if($this->session->userdata('logged_in') != true){
+                redirect('users/login');
+            }
             $this->load->helper(array('url'));
             $this->load->model('unit_model');
         }
 
         public function index($id = NULL){
-
          $this->load->database();
          $jumlah_data = $this->unit_model->jumlah_data();
          $this->load->library('pagination');
@@ -33,6 +35,9 @@
 
         //untuk menampilkan detailkomplain
         public function edit($id_kom = NULL){
+            if(!$this->session->userdata('logged_in')){
+				redirect('users/login');
+			}
 
             $data['unit'] = $this->unit_model->get_unitkom($id_kom);
             //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
@@ -50,6 +55,9 @@
              
               //edit
         public function editstatus(){
+            if(!$this->session->userdata('logged_in')){
+				redirect('users/login');
+			}
             $this->unit_model->update($id_kom);
 
              //setting pesan

@@ -56,9 +56,9 @@
 				<input type="text" class="form-control" placeholder="NIM" name="id_user"  required autofocus>
 			</div>
 			<div class="form-group">
-				<input type="password"  class="form-control" placeholder="Enter Password" name="password" required autofocus>
+				<input type="password"  class="form-control" placeholder="Masukkan Sandi" name="password" required autofocus>
 			</div>
-			<button type="submit" class="btn btn-success btn-block">Login</button>
+			<button type="submit" class="btn btn-success btn-block">Masuk</button>
 		</div>
 	</div>
 

@@ -2,10 +2,14 @@
     class Katkomplain extends CI_Controller{
         function __construct(){
             parent::__construct();
+            if($this->session->userdata('id_role') != 1){
+                redirect('users/login');
+            }
             $this->load->helper(array('url'));
             $this->load->model('katkomplain_model');
         }
 
+        
         public function index($id_kat_kom = NULL){
             $this->load->database();
             $jumlah_data = $this->katkomplain_model->jumlah_data();
@@ -50,9 +54,8 @@
 
        
 
-
+            //vieweditdetail
             public function edit($id_kat_kom = NULL){
-
                 $data['katkomplain'] = $this->katkomplain_model->get_katkomplaindetail($id_kat_kom);
                 //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
                  

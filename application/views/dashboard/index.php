@@ -4,13 +4,15 @@
     <script type="text/javascript">
     //Modifikasi 
     <?php 
-
-      $namahost = "localhost";
-      $namaPengguna = "root";
-      $katasandi = "";
-      $nama_dbase = "komplaindb";
-      $koneksi = mysqli_connect($namahost, $namaPengguna, $katasandi);
-      $database = mysqli_select_db($koneksi, $nama_dbase);
+    foreach($chart as $object){
+        $open_all[] = "['".$object->id_kat."', ".$object->count."]";
+    }
+    //   $namahost = "localhost";
+    //   $namaPengguna = "root";
+    //   $katasandi = "";
+    //   $nama_dbase = "komplaindb";
+    //   $koneksi = mysqli_connect($namahost, $namaPengguna, $katasandi);
+    //   $database = mysqli_select_db($koneksi, $nama_dbase);
 
       //cek koneksi
       // if(!koneksi)
@@ -20,10 +22,10 @@
       // // echo '<div class="alert alert-success" role="alert">Databse tidak ditemukan</div>';
 
       //Query
-      $query="SELECT id_kat, count( id_kat), STATUS FROM komplain NATURAL JOIN kategori group BY id_kat, STATUS";
+    //   $query="SELECT id_kat, count( id_kat), STATUS FROM komplain NATURAL JOIN kategori group BY id_kat, STATUS";
 
-      $results = mysqli_query($koneksi,$query);
-      $res = mysqli_fetch_array($results);
+    //   $results = mysqli_query($koneksi,$query);
+    //   $res = mysqli_fetch_array($results);
       
       // while($data=mysqli_fetch_array($getkomplain)){
         // echo $data[0]. $data[1]. $data[2].",/<br>";
@@ -39,11 +41,10 @@
 
      function drawChart() {
        var data = google.visualization.arrayToDataTable([
-         ['Year', 'Sales', 'Expenses'], 
-          ['2014', 1000, 400],
-          ['2015', 1170, 460],
-          ['2016', 660, 1120],
-          ['2017', 1030, 540]
+         data.addcolumn('string', 'id_kat');
+         data.addcolumn('number','Count');
+         data.addcolumn('status')
+         data.addrows([<?php echo implode(",", $open_all)]) ?>
        ]);
 
        var options = {
@@ -53,7 +54,7 @@
          }
        };
 
-       var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+       var chart = new google.charts.Bar(document.getElementById('risk_id_kat'));
 
        chart.draw(data, google.charts.Bar.convertOptions(options));
      }
@@ -61,10 +62,6 @@
     </script>
   </head>
   <body>
-    <div id="columnchart_material" style="width: 800px; height: 600px;"></div>
-    <?php echo"ada data"; ?>
-    <?php foreach($res as $data){
-      echo $data[0];
-    } ?>
+    <div id="risk_id_kat" style="width: 800px; height: 600px;"></div>
   </body>
 </html>
