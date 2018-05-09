@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-// $route['admin'] = 'admin/index';
-// $route['admin/(:any)'] = 'admin/view/$1';
+$route['home'] = 'home/index';
+$route['home/(:any)'] = 'home/view/$1';
 
 $route['komplain'] = 'komplain/index';
 $route['komplain/tambahkomplain'] = 'komplain/tambahkomplain';
@@ -17,6 +17,9 @@ $route['katkomplain'] = 'katkomplain/index';
 $route['katkomplain/tambahkatkom'] = 'katkomplain/tambahkatkom';
 $route['katkomplain/edit'] = 'katkomplain/editkatkomplain';
 $route['katkomplain/(:any)'] = 'katkomplain/view/$1';
+
+$route['dashboard'] = 'dashboard/index';
+$route['dashboard/(:any)'] = 'dashboard/view/$1';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';
