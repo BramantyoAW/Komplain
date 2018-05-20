@@ -10,13 +10,13 @@
         }
 
         public function index($id = NULL){
-         $this->load->database();
-         $jumlah_data = $this->unit_model->jumlah_data();
          $this->load->library('pagination');
          $config['base_url'] = base_url().'unit/index';
-         $config['total_rows'] = $jumlah_data;
+         $config['total_rows'] = $this->unit_model->jumlah_data();
          $config['per_page'] = 10;
-         $from= $this->uri->segment(3);
+         $config['uri_segment'] = 3;
+         $config['attributes'] = array('class' => 'pagination-link');
+  
 
          $this->pagination->initialize($config);
 
@@ -53,17 +53,19 @@
              $this->load->view('templates/footer');
              }
              
-              //edit
+              //edit mengubah nilai pada Edit
         public function editstatus(){
+            //session
             if(!$this->session->userdata('logged_in')){
 				redirect('users/login');
-			}
-            $this->unit_model->update($id_kom);
+            }
 
+            $this->db->set('tanggal_ubah','NOW()',FALSE);
+            $this->unit_model->update($id_kom);
              //setting pesan
              $this->session->flashdata('status_edited','Komplain Berhasil Ditambah');
              
-            redirect('unit');
+            redirect('unit/index');
 
         }
              

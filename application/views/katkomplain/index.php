@@ -1,9 +1,23 @@
-<!-- <script>
-$('#myModal').on('shown.bs.modal', function () {
-$('#myInput').trigger('focus')
-})
-</script>  -->
+<link rel="stylesheet" href="<?php echo base_url();?>css2/bootstrap.min.css">
+<style>
+                    .pagination-links{
+                    margin:30px 0;
+                }
 
+                .pagination-links strong{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+                }
+
+                a.pagination-link{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+        }
+</style>
 <br>
 <h2><b>Daftar kategori Komplain</b></h2><br>
     <div class="container nav navbar-nav navbar-right table-responsive" >
@@ -41,7 +55,7 @@ $('#myInput').trigger('focus')
                 </tbody>
             </table>
             
-            <div class="halaman"><?php echo $halaman;?></div><br>
+            <div class="pagination-links"><?php echo $halaman;?></div><br>
 
 
             

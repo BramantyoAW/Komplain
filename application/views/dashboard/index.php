@@ -1,67 +1,56 @@
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-    //Modifikasi 
-    <?php 
-    foreach($chart as $object){
-        $open_all[] = "['".$object->id_kat."', ".$object->count."]";
-    }
-    //   $namahost = "localhost";
-    //   $namaPengguna = "root";
-    //   $katasandi = "";
-    //   $nama_dbase = "komplaindb";
-    //   $koneksi = mysqli_connect($namahost, $namaPengguna, $katasandi);
-    //   $database = mysqli_select_db($koneksi, $nama_dbase);
+    <title>TES</title>
+    <h2>REPORT DASHBOARD KOMPLAIN KESELURUHAN</h2>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>css2/Chart.min.js"></script>
 
-      //cek koneksi
-      // if(!koneksi)
-      //   echo '<div class="alert alert-danger" role="alert">Koneksi Gagal</div>';
-
-      // // if(!database)
-      // // echo '<div class="alert alert-success" role="alert">Databse tidak ditemukan</div>';
-
-      //Query
-    //   $query="SELECT id_kat, count( id_kat), STATUS FROM komplain NATURAL JOIN kategori group BY id_kat, STATUS";
-
-    //   $results = mysqli_query($koneksi,$query);
-    //   $res = mysqli_fetch_array($results);
+    <br>
+      <canvas id="myChart" style="width: 900px; height: 300px;"></canvas>
+      <script type="text/javascript">
       
-      // while($data=mysqli_fetch_array($getkomplain)){
-        // echo $data[0]. $data[1]. $data[2].",/<br>";
-        // die('INI DATA');
-      // }
+      <?php
+        foreach($data as $data){
+            $kom[] = $data->nama_kat_kom;
+            // $count[] = $data->count('id_kat_kom');
+            $STATUS[] = (float) $data->STATUS;
+        }
+      ?>
 
-      // $data[]=mysqli_fetch_array($getkomplain);
-    ?>
-     
-
-     google.charts.load('current', {'packages':['bar']});
-     google.charts.setOnLoadCallback(drawChart);
-
-     function drawChart() {
-       var data = google.visualization.arrayToDataTable([
-         data.addcolumn('string', 'id_kat');
-         data.addcolumn('number','Count');
-         data.addcolumn('status')
-         data.addrows([<?php echo implode(",", $open_all)]) ?>
-       ]);
-
-       var options = {
-         chart: {
-           title: 'Company Performance',
-           subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-         }
-       };
-
-       var chart = new google.charts.Bar(document.getElementById('risk_id_kat'));
-
-       chart.draw(data, google.charts.Bar.convertOptions(options));
-     }
-
-    </script>
-  </head>
-  <body>
-    <div id="risk_id_kat" style="width: 800px; height: 600px;"></div>
-  </body>
-</html>
+      var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: <?php echo json_encode($kom);?>,
+                    datasets: [{
+                        label: 'Data Komplain Keseluruhan',
+                        data: <?php echo json_encode($STATUS);?>,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 5
+                    }]
+                    
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        </script>

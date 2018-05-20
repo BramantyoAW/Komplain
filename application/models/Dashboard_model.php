@@ -2,24 +2,17 @@
     class  Dashboard_model extends CI_Model{
 
         public function get_chart_data(){
-            $query = $this->db->get('komplain', $q1);
-            $q1 = 'SELECT id_kat, count( id_kat), STATUS FROM komplain NATURAL JOIN kategori group BY id_kat, STATUS';
-            // $this->db->select('id_kat, count( id_kat), status');
-            // // $this->db->where('status');
-            // $this->db->from('komplain natural join kategori');
-            // $this->db->group_by('id_kat, status');
-            // $query = $this->db->get();
-            return $query;
-
-            //$query="SELECT id_kat, count( id_kat), STATUS FROM komplain NATURAL JOIN kategori group BY id_kat, STATUS";
+        //Query untuk melihat keseluruhan status dari komplain
+        //return $query = $this->db->query("SELECT id_kat_kom, count(id_kat_kom), STATUS FROM komplain NATURAL JOIN kategori group BY id_kat, STATUS")->result();
+        
+        //Query menampilkan id kategori
+        //return $query = $this->db->query("SELECT id_kat_kom,COUNT(id_kat_kom) AS STATUS FROM komplain GROUP BY id_kat_kom")->result();
+         
+        //Query Menampilkan nama Kategori Komplain
+        return $query = $this->db->query("Select nama_kat_kom, count(id_kat_kom) AS STATUS FROM komplain Natural join kat_kom group by id_kat_kom")->result();
+          
+        //Query ga bisa di panggil di view
+        //return $query = $this->db->query("Select nama_kat_kom, count(id_kat_kom) from komplain k Natural join kat_kom group by id_kat_kom")->result();
         }
     }
 
-
-    //    $query = $this->db->get($this->db_mgmt);
-    // $this->db->select('rating, COUNT(rating) AS Count');
-    // $this->db->from('db_mgmt');
-    // $this->db->where('status =', $status);
-    // $this->db->group_by('rating'); 
-    // $query = $this->db->get();
-    // $results['chart'] = $query->result();

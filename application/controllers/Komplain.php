@@ -2,42 +2,89 @@
     class Komplain extends CI_Controller{
         function __construct(){
             parent::__construct();
-            if($this->session->userdata('id_role') != 3){
-                redirect('users/login');
-            }
             $this->load->helper(array('url'));
             $this->load->model('komplain_model');
         }
 
-        
+        //index user
         public function index($id_kom = NULL){
-         $this->load->database();
-         $jumlah_data = $this->komplain_model->jumlah_data();
-         $this->load->library('pagination');
-         $config['base_url'] = base_url().'komplain/index';
-         $config['total_rows'] = $jumlah_data;
-         $config['per_page'] = 10;
-         $from= $this->uri->segment(3);
+            if($this->session->userdata('id_role') != 3){
+                redirect('users/login');
+            }
+        $this->load->library('pagination');
+        $config['base_url'] = base_url().'komplain/index';
+        $config['total_rows'] = $this->komplain_model->jumlah_data();
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 3;
+        $config['attributes'] = array('class' => 'pagination-link');
+   
+        $this->pagination->initialize($config);
 
-         $this->pagination->initialize($config);
+        $data['halaman'] = $this->pagination->create_links();
 
-         $data['halaman'] = $this->pagination->create_links();
-
-         $data['komplain'] = $this->komplain_model->get_komplain($config['per_page'],$id_kom);
-        // print_r($data['komplain']);
-            
-       //$data['title'] = "Daftar Komplain";
+        $data['komplain'] = $this->komplain_model->get_komplain($config['per_page'],$id_kom);
         
-            $this->load->view('templates/header');
-            $this->load->view('komplain/index', $data);
-            $this->load->view('templates/footer');
-
-            // $this->session->set_flashdata('user_loggedin');
+        $this->load->view('templates/header');
+        $this->load->view('komplain/index', $data);
+        $this->load->view('templates/footer');
             
         }
 
-        //Menambahkan Data Controllers
+        //Index Admin 
+        public function indexadm($id_kom = NULL){
+            if($this->session->userdata('id_role') != 1){
+                redirect('users/login');
+            }
+            $this->load->library('pagination');
+            $config['base_url'] = base_url().'komplain/indexadm';
+            $config['total_rows'] = $this->komplain_model->jumlah_data();
+            $config['per_page'] = 10;
+            $config['uri_segment'] = 3;
+            $config['attributes'] = array('class' => 'pagination-link');
+   
+            $this->pagination->initialize($config);
+   
+            $data['halaman'] = $this->pagination->create_links();
+   
+            $data['komplain'] = $this->komplain_model->get_komplain($config['per_page'],$id_kom);
+           
+            $this->load->view('templates/header');
+            $this->load->view('komplain/indexadm', $data);
+            $this->load->view('templates/footer');
+   
+               
+           }
+
+        //komplain saya
+        public function komsay($id_kom = NULL){
+            if($this->session->userdata('id_role') != 3){
+                redirect('users/login');
+            }
+            $this->load->library('pagination');
+            $config['base_url'] = base_url().'komplain/komsay';
+            $config['total_rows'] = $this->komplain_model->jumlah_data();
+            $config['per_page'] = 10;
+            $config['uri_segment'] = 3;
+            $config['attributes'] = array('class' => 'pagination-link');
+   
+            $this->pagination->initialize($config);
+   
+            $data['halaman'] = $this->pagination->create_links();
+   
+            $data['komplain'] = $this->komplain_model->get_komsay($config['per_page'],$id_kom);
+        
+            $this->load->view('templates/header');
+            $this->load->view('komplain/komsay', $data);
+            $this->load->view('templates/footer');
+   
+               
+           }
+
+        //Menambahkan Data komplain
         public function tambahkomplain(){
+            if($this->session->userdata('id_role') != 3){
+                redirect('users/login');
+            }
             $data['title'] = 'Tambah Komplain';
 
             //tambahan select
@@ -61,8 +108,6 @@
                 $this->load->view('templates/footer');
             } else {
                 //Upload Gambar
-
-               
                 $config['upload_path'] = './images/gambarbaruupload';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = '2048';
@@ -85,7 +130,7 @@
                 //setting pesan
                 $this->session->flashdata('komplain_created','Komplain Berhasil Ditambah');
 
-                redirect('komplain');
+                redirect('komplain/index');
             } 
         }
 

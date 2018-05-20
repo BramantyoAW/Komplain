@@ -47,13 +47,14 @@
             </div>
 
     </body> -->
-
-    <br><br><br><br><br><br>
+    <body background='<?php echo base_url() ?>.\images\LAPTOPKUH.jpg'  style="background-position:center;">
+    <br><br><br><br>
     <div align="center">
+        <img src="<?php echo base_url(); ?>.\images\Logo.png" alt="ERRORHUMAN">
 		<div align="center" class="col-md-4 col-md-offset-4">
-			<h1 class="text-center"><?php echo $title; ?></h1>
+			<!-- <h1 class="text-center"><?php echo $title; ?></h1><br> -->
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="NIM" name="id_user"  required autofocus>
+				<input type="text" class="form-control" placeholder="Masukkan ID/NIM" name="id_user"  required autofocus>
 			</div>
 			<div class="form-group">
 				<input type="password"  class="form-control" placeholder="Masukkan Sandi" name="password" required autofocus>
@@ -63,4 +64,11 @@
 	</div>
 
 <?php echo form_close(); ?>
+
+<style>
+<?php echo base_url() ?>.\images\LAPTOPKUH.jpg{
+    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+    filter: blur(5px);
+}
+</style>
 

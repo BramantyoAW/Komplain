@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="css2/bootstrap.css">
             <link rel="stylesheet" href="css2/_variables.scss">
             <link rel="stylesheet" href="css2/_bootswatch.scss">
-            <link rel="stylesheet" href="css2/style.css">
+            <link rel="stylesheet" href="<?php echo base_url();?>css2/style.css">
            <!-- bundle dari bootsrap 4 online -->
             <script src="//cdn.ckeditor.com/4.9.1/standard/ckeditor.js"></script>
             <!-- atas ini ck editor buat form -->
@@ -22,7 +22,7 @@
 
     <!-- navbar 1 (KIRI)-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-white">
-    <a class="navbar-brand" href="<?php echo base_url();?>kompsay">
+    <a class="navbar-brand" href="<?php echo base_url();?>home">
         <img src="<?php echo base_url();?>.\images\Logo.png" alt="logo" width="120" heigh="60"></a>
         <!-- <div class='navbar-right' style="font-family:'Segoe UI',Arial,sans-serif">KENYAMANAN KEAMANAN UNTUK MEMAKSIMALKAN</div> -->
         </div>
@@ -30,7 +30,7 @@
         <li class="navbar-item active"></li>
         </ul>
         <ul class="nav navbar-nav navbar-right" >
-        <li>Halo, <?php echo $this->session->userdata("nama");?>  <br> 
+        <li>Halo, <?php echo $this->session->userdata("nama"); ?> ( <?php echo $this->session->userdata("id_user"); ?> ) ||  <br> 
          <a href="<?php echo base_url();?>users/logout">Log Out </a>
         </li>
         </ul>
@@ -44,30 +44,34 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
+          <!-- Page Netral Home -->
+          <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url();?>home"><b>Home<span class="sr-only">(current)</b></span></a>
+              </li>
           <?php if($this->session->userdata('id_role') != 3): ?>
           <?php else:?>
               <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>komplain"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
+                <a class="nav-link" href="<?php echo base_url();?>komplain/index"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>kompsay" ><b>Komplain Saya</b></a>
+                <a class="nav-link" href="<?php echo base_url();?>komplain/komsay" ><b>Komplain Saya</b></a>
               </li>
             <?php endif; ?>
           <!-- Unit -->
           <?php if($this->session->userdata('id_role') != 2): ?>
           <?php else: ?>
           <li class="nav-item active">
-               <a class="nav-link" href="<?php echo base_url();?>unit"><b>Daftar Komplain(UNIT)</b></a>
+               <a class="nav-link" href="<?php echo base_url();?>unit/index"><b>Daftar Komplain(UNIT)</b></a>
           </li>
           <?php endif; ?>
           <!-- admin -->
           <?php if($this->session->userdata('id_role') != 1): ?>
           <?php else: ?>
           <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url();?>komplain"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
+            <a class="nav-link" href="<?php echo base_url();?>komplain/indexadm"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url();?>katkomplain"><b>Kategori Komplain</b></a>
+            <a class="nav-link" href="<?php echo base_url();?>katkomplain/index"><b>Kategori Komplain</b></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo base_url();?>dashboard" ><b>Visualisasi</b></a>

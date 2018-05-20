@@ -1,3 +1,23 @@
+<link rel="stylesheet" href="<?php echo base_url();?>css2/bootstrap.min.css">
+<style>
+                    .pagination-links{
+                    margin:30px 0;
+                }
+
+                .pagination-links strong{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+                }
+
+                a.pagination-link{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+        }
+</style>
 <br>
 <h2><b>Daftar Komplain Masuk Dan Penggubahan Status Pada Unit</b></h2>
 <br><br>
@@ -10,7 +30,8 @@
                     <th>Nama </th>
                     <th width="200" style="text-align:center">ID Kategori</th>
                     <th width="280">Judul Komplain</th>
-                    <th width="350" style="text-align:center">Tanggal & Jam</th>
+                    <th width="350" style="text-align:center">Tanggal Komplain</th>
+                    <th width="360" style="text-align:center">Tanggal Status Ubah</th>
                     <th width="340" style="text-align:center">Status Komplain</th>
                     <th  style="text-align:center">Aksi</th>
                 </tr>
@@ -23,6 +44,7 @@
                     <td style="text-align:center"><?php echo $u->id_kat_kom;?></td>
                     <td style="text-align:center"><?php echo $u->judul;?></td>
                     <td style="text-align:center"><?php echo $u->tanggal_kom;?></td>
+                    <td style="text-align:center"><?php echo $u->tanggal_ubah;?></td>
                     <td style="text-align:center"><?php echo $u->status;?></td>
                     <td>
                     <a class="btn btn-warning" href="<?php echo site_url('/unit/edit/'.$u->id_kom); ?>">
@@ -33,7 +55,7 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <div class="halaman"><?php echo $halaman;?></div><br>
+            <div class="pagination-links"><?php echo $halaman;?></div><br>
 
 
 

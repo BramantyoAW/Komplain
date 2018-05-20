@@ -11,13 +11,12 @@
 
         
         public function index($id_kat_kom = NULL){
-            $this->load->database();
-            $jumlah_data = $this->katkomplain_model->jumlah_data();
             $this->load->library('pagination');
             $config['base_url'] = base_url().'katkomplain/index';
-            $config['total_rows'] = $jumlah_data;
+            $config['total_rows'] = $this->katkomplain_model->jumlah_data();
             $config['per_page'] = 10;
-            $from = $this->uri->segment(3);
+            $config['uri_segment'] = 3;
+            $config['attributes'] = array('class' => 'pagination-link');
 
             $this->pagination->initialize($config);
 
@@ -48,7 +47,7 @@
                 //setting pesan
                 $this->session->flashdata('katkomplain_created','Komplain Berhasil Ditambah');
 
-               redirect('katkomplain');
+               redirect('katkomplain/index');
             }
         }
 
@@ -78,7 +77,7 @@
                 $this->session->flashdata('katkomplain_edited','Komplain Berhasil Ditambah');
 
 
-                redirect('katkomplain');
+                redirect('katkomplain/index');
                 }
 
 
@@ -88,7 +87,7 @@
                  //setting pesan
                  $this->session->flashdata('katkomplain_deleted','Komplain Berhasil Ditambah');
 
-                redirect('katkomplain');
+                redirect('katkomplain/index');
                 }
             
         }

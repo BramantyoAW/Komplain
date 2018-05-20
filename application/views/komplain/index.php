@@ -1,3 +1,24 @@
+<link rel="stylesheet" href="<?php echo base_url();?>css2/bootstrap.min.css">
+        <style>
+                    .pagination-links{
+                    margin:30px 0;
+                }
+
+                .pagination-links strong{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+                }
+
+                a.pagination-link{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+        }
+
+        </style>
 <br>
 <?php $this->session->userdata('user_loggedin'); ?>
 <!-- <h2>Hai, <?php echo $this->session->userdata("nama"); ?></h2> -->
@@ -35,4 +56,4 @@
                 </tbody>
             </table>
             
-            <div class="halaman"><?php echo $halaman;?></div><br>
+            <div class="pagination-links"><?php echo $halaman;?></div><br>
