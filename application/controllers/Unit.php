@@ -40,7 +40,6 @@
 			}
 
             $data['unit'] = $this->unit_model->get_unitkom($id_kom);
-            //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
              
              if(empty($data['unit'])){
                  show_404();
