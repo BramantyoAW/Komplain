@@ -20,6 +20,7 @@ $route['unit/(:any)'] = 'unit/view/$1';
 $route['katkomplain/index'] = 'katkomplain/index';
 $route['katkomplain/tambahkatkom'] = 'katkomplain/tambahkatkom';
 $route['katkomplain/detail'] = 'katkomplain/detail';
+$route['katkomplain/addkatU'] = 'katkomplain/addkatU';
 $route['katkomplain/(:any)'] = 'katkomplain/view/$1';
 
 $route['dashboard'] = 'dashboard/index';

@@ -72,26 +72,24 @@
                  }
                  
             //buat nambah kategori_unit
-            public function tambahkatunit(){
-                $data['kat_unit'] = $this->katkomplain_model->post_katunit();
-
-                $this->form_validation->set_rules('id_kat_kom', 'NAMA KATEGORI KOMPLAIN KOSONG', 'required');
-                $this->form_validation->set_rules('id_user', 'tidak boleh kosong nama', 'required');
-
-                if($this->form_validation->run() === FALSE){
-                    $this->load->view('templates/header');
-                    $this->load->view('katkomplain/tambahkatunit', $data);
-                    $this->load->view('templates/footer');
-        
-                } else {
-                    $this->katkomplain_model->create_katkomplain();
-
-                    //setting pesan
-                    $this->session->flashdata('katkomplain_created','Komplain Berhasil Ditambah');
-
-                redirect('katkomplain/index');
-                 }
-            }
+            public function addkatU(){
+                //session
+                if(!$this->session->userdata('logged_in')){
+                    redirect('users/login');
+                }
+    
+                // //insert
+                 $this->katkomplain_model->insertkatunit();
+                // $msg['success'] = False;
+                // if($result){
+                //     $msg['success'] = True;
+                // } 
+                
+                // echo json_encode($msg);
+                // die;
+    
+                echo json_encode(array("status" => TRUE));
+            }        
 
             //edit
             public function editkatkomplain(){
@@ -99,6 +97,9 @@
                 //setting pesan
                 $this->session->flashdata('katkomplain_edited','Komplain Berhasil Ditambah');
                 redirect('katkomplain/index');
+
+
+                
                 }
 
 

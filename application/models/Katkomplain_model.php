@@ -58,14 +58,20 @@
         
 
         //menambah kategori_unit untuk di dedetail
-        public function post_katunit(){
+        public function insertkatunit(){
             $data = array(
-                'id_kat_unit'=> $this->input->post('id_kat_unit'),
+                'id_kat_unit' => $this->input->post('id_kat_unit'),
                 'id_kat_kom' => $this->input->post('id_kat_kom'),
                 'id_user' => $this->input->post('id_user')
             );
             return $this->db->insert('kategori_unit', $data);
+            if($this->db->affected_rows() > 0){
+                return true;
+            } else {
+                return false;
+            }  
         }
+
 
         //edit kategori komplain kat_kom
         public function edit_katkomplain($id_kat_kom){
