@@ -57,5 +57,6 @@
                 <?php endforeach; ?>
                 </tbody>
      </table>
+     <div class="pagination-links"><?php echo $halaman;?></div><br>
 </div>
-             <div class="pagination-links"><?php echo $halaman;?></div><br>
+             

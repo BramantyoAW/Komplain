@@ -84,6 +84,13 @@
                    
         }
 
+        //hapus unit sinkronasi
+        public function delet_unit($id_kat_unit){
+            $this->db->where('id_kat_unit', $id_kat_unit);
+            $this->db->delete('kategori_unit');
+            return true;
+        }
+
         //hapus kat_kom
         public function hapus_katkomplain($id_kat_kom){
             $this->db->where('id_kat_kom', $id_kat_kom);

@@ -15,7 +15,7 @@
    $('.form-group').removeClass('has-error'); // clear error class
    $('.help-block').empty(); // clear error string
    $('#myModal').modal('show'); // show bootstrap modal
-   $('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
+   $('.modal-title').text('Tambah Akses Unit'); // Set Title to Bootstrap modal title
    }
    
 
@@ -155,6 +155,7 @@
             <thead>
               <tr>
                 <th style="text-align:center">Nama </th>
+                <th style="text-align:center">Action</th>
               </tr>
             </thead>
 
@@ -162,13 +163,17 @@
               <?php foreach($a as $u) : ?>
                 <tr>
                   <td ><?php echo $u->nama;?></td>
+                  <td style="text-align:center" width="50">
+                    <a type="submit" class="btn btn-danger" value="hapus" href="<?php site_url('katkomplain/hapusUnit'.$u->nama)?>"/><i class="fa fa-close"></i> </a>
+                    </td>
                 </tr>
               <?php endforeach ?>
           </table>
-        </div>
+        </div><br>
         
-      <!-- <div>
-          <button type="submit" class="btn btn-success">Simpan</button>
-      </div> -->
+      <div>
+        <a class="btn btn-success" href="">Selesai</a>
+          <!-- <button type="submit" class="btn btn-success">Simpan</button> -->
+      </div>
   </div>
   

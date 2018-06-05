@@ -92,16 +92,26 @@
             }        
 
             //edit
-            public function editkatkomplain(){
-                $this->katkomplain_model->edit_katkomplain($id_kat_kom);
+            public function balik(){
+                // $this->katkomplain_model->edit_katkomplain($id_kat_kom);
                 //setting pesan
                 $this->session->flashdata('katkomplain_edited','Komplain Berhasil Ditambah');
                 redirect('katkomplain/index');
 
 
-                
+                $this->load->view('templates/header');
+                $this->load->view('katkomplain/index', $data);
+                $this->load->view('templates/footer');
                 }
 
+            public function hapusUnit($id_kat_unit){
+                $this->katkomplain_model->delet_unit($id_kat_unit);
+    
+                //setting pesan
+                $this->session->flashdata('katkomplain_deleted','Komplain Berhasil Ditambah');
+    
+                redirect('katkomplain/index');
+                }  
 
             public function hapus($id_kat_kom){
                 $this->katkomplain_model->hapus_katkomplain($id_kat_kom);

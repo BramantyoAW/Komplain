@@ -118,7 +118,7 @@
 
                 if(!$this->upload->do_upload()){
 					$errors = array('error' => $this->upload->display_errors());
-					$gambar_komplain = 'noimage.png';
+					$gambar_komplain = 'noimage.gif';
 				} else {
 					$data = array('upload_data' => $this->upload->data());
 					$gambar_komplain = $_FILES['userfile']['name'];
@@ -150,4 +150,26 @@
             $this->load->view('komplain/detailkomplain', $data);
             $this->load->view('templates/footer');
             }
+
+
+            // public function select($search){
+
+            //     $this->load->model('get');
+            
+            //     if(isset($_GET ['search']) && !empty($_GET['search'])) {
+            
+            //         $search= $_GET[ 'search'];
+            //         $this->load->model('Login_model');
+            
+            //         if($this->Login_model->selectorganizer($search))
+            //         {
+            //            $this->load->view('organizer');
+            
+            //         }
+            //         else
+            //         {
+            //             redirect('admin/show');
+            //         }
+            //     }  
+            // } 
     }

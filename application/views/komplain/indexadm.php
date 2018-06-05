@@ -21,10 +21,17 @@
                     background: #f4f4f4;
                     border: 1px #ccc solid;
         }
+
+        
 </style>
-<br>
 <div class="container">
     <h2><b>Daftar Komplain</b></h2>
+    <form class="form-inline my-2 my-lg-0">
+    <div class="col-md-4" style="margin-left:780px">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </div>
+      </form><br>
             <table class="table">
                 <thead>
                 <tr>
@@ -55,6 +62,7 @@
                 <?php endforeach; ?>
             </tbody>
     </table>
+    <div class="pagination-links"><?php echo $halaman;?></div><br>
 </div>
             
-            <div class="pagination-links"><?php echo $halaman;?></div><br>
+          

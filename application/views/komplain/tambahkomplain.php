@@ -63,27 +63,39 @@
             </div>
             <div class="control-control"> 
               <label>Solusi dari Komplain</label>
+              <div class="col-md-12">
                 <div class="controls">
                   <div class="form-check-inline">
                       <label class="form-check-label" for="radio1">
-                        <input type="radio" class="form-check-input" id="radio1" name="solusi" value="-" checked>Tidak Memiliki Solusi
+                        <input type="radio" class="form-check-input" id="radio1" name="solusi" value="-" checked>Tidak ada
                       </label>
                     </div>
                     <div class="form-check-inline">
                       <label class="form-check-label" for="radio2">
-                        <input type="radio" class="form-check-input" id="radio2" name="solusi" value="apa">apa
+                        <input type="radio" class="form-check-input" id="radio2" name="solusi" value="Tingkatkan lagi kinerjanya">Tingkatkan lagi kinerjanya
                       </label>
                     </div>
                     <div class="form-check-inline">
-                      <label class="form-check-label" for="radio2">
-                        <input type="radio" class="form-check-input" id="radio2" name="solusi" value="apa">apa
+                      <label class="form-check-label" for="radio3">
+                        <input type="radio" class="form-check-input" id="radio3" name="solusi" value="Segera diperbaiki">Segera diperbaiki
                       </label>
                     </div>
                     <div class="form-check-inline">
-                      <label class="form-check-label" for="radio2">
-                        <input type="radio" class="form-check-input" id="radio2" name="solusi" value="apa">apa
+                      <label class="form-check-label" for="radio4">
+                        <input type="radio" class="form-check-input" id="radio4" name="solusi" value="Segera ditindak lanjuti">Segera ditindak lanjuti
                       </label>
                     </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label" for="radio5">
+                        <input type="radio" class="form-check-input" id="radio5" name="solusi" value="Segera dicek">Segera dicek
+                      </label>
+                    </div><br><br>
+                    <div class="form-check-inline">
+                      <label class="form-check-label" for="radio6">
+                        <input type="radio" class="form-check-input" id="radio6" name="solusi" value="">lain - lain
+                      </label>
+                    </div>
+                  </div>
                   </div>
                 </div>
            <br>

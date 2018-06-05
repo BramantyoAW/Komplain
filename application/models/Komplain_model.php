@@ -17,7 +17,7 @@ class Komplain_model extends CI_Model{
         
     //$query=$this->db->query('SELECT id_kat_kom, nama_kat_kom from kat_kom');
 
-    $this->db->order_by('tanggal_kom');
+    $this->db->order_by('tanggal_kom', "DESC");
     return $query = $this->db->get('komplain',$number,$offset)->result();    
     }
     
@@ -30,6 +30,7 @@ class Komplain_model extends CI_Model{
 
     //penghitungan tabel pagination
     function jumlah_data(){
+        $this->db->order_by('tanggal_kom');
         return $this->db->get('komplain')->num_rows();
     }
 
@@ -80,4 +81,13 @@ class Komplain_model extends CI_Model{
 
         return $this->db->insert('komplain', $data);
     }
+
+    // public function selectorganizer ($search) {
+    //     $condition = "search = '" . $search . "'";
+    //     $this->db->select('*');
+    //     $this->db->from('organizer');
+    //     $this->db->where($condition);
+    //     $query = $this->db->get();
+    //     return $result = $query->result();
+    // }          
 }
