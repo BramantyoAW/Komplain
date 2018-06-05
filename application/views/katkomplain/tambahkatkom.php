@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="<?php echo base_url();?>css2/bootstrap.min.css">
-<br>
-<h2><b><?= $title; ?></b></h2>
-<br>
   <?php echo validation_errors(); ?>
     <?php echo form_open_multipart('katkomplain/tambahkatkom');?>
+<br>
     <form>
+        <div class="container">
+        <h2><b><?= $title; ?></b></h2>
             <div class="control-group" >
               <label >Id Kategori Komplain</label>
               <div class="controls">
@@ -24,7 +24,8 @@
               </div>
             </div><br>
             <div>
-              <button type="submit" class="btn btn-danger">Tambah Komplain</button>
+              <button type="submit" class="btn btn-success">Tambah Komplain</button>
             </div>
+        </div>
   </form>
 

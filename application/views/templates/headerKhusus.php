@@ -4,10 +4,10 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
             <link rel="stylesheet" href="css2/bootstrap.min.css">
-            <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css" >    
+            <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css" >
             <!-- bootstrap 4 atas ini primary dan sama 1 online 1 offline -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <!-- atas ini buat icon -->
+            <!-- buat icon -->
             <link rel="stylesheet" href="css2/bootstrap.css">
             <link rel="stylesheet" href="css2/_variables.scss">
             <link rel="stylesheet" href="css2/_bootswatch.scss">
@@ -24,17 +24,13 @@
 
     <!-- navbar 1 (KIRI)-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-white">
-    <a class="navbar-brand" href="<?php echo base_url();?>home/homelogin">
+    <a class="navbar-brand" href="<?php echo base_url();?>home">
         <img src="<?php echo base_url();?>.\images\Logo.png" alt="logo" width="120" heigh="60"></a>
         <!-- <div class='navbar-right' style="font-family:'Segoe UI',Arial,sans-serif">KENYAMANAN KEAMANAN UNTUK MEMAKSIMALKAN</div> -->
         </div>
         <ul class="navbar-nav mr-auto">
         <li class="navbar-item active"></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right" >
-        <li>Halo, <?php echo $this->session->userdata("nama"); ?> ( <?php echo $this->session->userdata("id_user"); ?> )<br> 
-         <a href="<?php echo base_url();?>users/logout">Log Out <i class="fa fa-sign-out"></i></a>
-        </li>
         </ul>
     </nav>
 
@@ -46,14 +42,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
-          <!-- Page Netral Home -->
-          <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>home/homelogin" hidden><b>Home<span class="sr-only">(current)</b></span></a>
-          </li>
           <?php if($this->session->userdata('id_role') != 3): ?>
           <?php else:?>
               <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>komplain/index" hidden><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
+                <a class="nav-link" href="<?php echo base_url();?>komplain/index"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url();?>komplain/komsay" ><b>Komplain Saya</b></a>
@@ -70,13 +62,13 @@
           <?php if($this->session->userdata('id_role') != 1): ?>
           <?php else: ?>
           <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url();?>dashboard" ><b>Dashboard</b></a>
-          </li>
-          <li class="nav-item active">
             <a class="nav-link" href="<?php echo base_url();?>komplain/indexadm"><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo base_url();?>katkomplain/index"><b>Kategori Komplain</b></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="<?php echo base_url();?>dashboard" ><b>Visualisasi</b></a>
           </li>
           <?php endif; ?>
           </ul>
@@ -90,7 +82,7 @@
                 </li >
             <?php endif; ?>
                 <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>users/login" hidden><b>Login</b></a>
+                <a class="nav-link" href="<?php echo base_url();?>users/login" ><b>Login <i class="fa fa-sign-in"></i></b></a>
                 </li>
                 <!-- log out dah jadi di header atas, hidden -->
                 <li class="nav-item active">
@@ -101,7 +93,7 @@
         </div>
       </nav>
     
-  
+ 
 
   <!-- Flash message -->
   <?php if($this->session->flashdata('user_registered')): ?>

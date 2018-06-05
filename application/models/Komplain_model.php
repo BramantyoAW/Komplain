@@ -28,7 +28,7 @@ class Komplain_model extends CI_Model{
     return $query = $this->db->get("KOMPLAIN WHERE id_user='$id_user' ORDER BY id_kom",$number,$offset)->result();
     }
 
-    //penghitungan tabel
+    //penghitungan tabel pagination
     function jumlah_data(){
         return $this->db->get('komplain')->num_rows();
     }
@@ -39,9 +39,12 @@ class Komplain_model extends CI_Model{
         $this->db->order_by('id_kat_kom');
         $query = $this->db->get('kat_kom');
         return $query->result_array();
-
-
     }
+
+    //select detail komplain
+    public function get_detailkom($id_kom){
+        return $query = $this->db->query("select * from detail_kom where id_kom='$id_kom'")->result();
+       }
 
     //untuk melihat detail komplain pada daftar mahasiswa 
     public function get_kom($id_kom)

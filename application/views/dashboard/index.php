@@ -1,5 +1,11 @@
-    <title>TES</title>
-    <h2>REPORT DASHBOARD KOMPLAIN KESELURUHAN</h2>
+<!-- <body> -->
+    
+
+<div class="container">
+    <!-- <div class="row">
+        <div class="col-md-6"> -->
+        <h2>REPORT DASHBOARD KOMPLAIN KESELURUHAN</h2><hr>
+        
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
     <script type="text/javascript" src="<?php echo base_url(); ?>css2/Chart.min.js"></script>
 
@@ -14,7 +20,9 @@
             $STATUS[] = (float) $data->STATUS;
         }
       ?>
+      
 
+   
       var ctx = document.getElementById("myChart");
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -54,3 +62,55 @@
                 }
             });
         </script>
+    </div>
+    <!-- </body>
+
+        <div class="col-md-6">
+            
+            <script>
+
+            var myLineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Januari", "Febuari", "March", "April", "May","Juni","July"],
+                    datasets: [
+                        {
+                            label: "Percobaan Line Charts",
+                            fill: false,
+                            lineTension: 0.1,
+                            backgroundColor: "rgba(75,192,192,0,4)",
+                            borderColor: "rgba(75,192,192,1)",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "rgba(75,192,192,1)",
+                            pointBackgroundColor: "#fff",
+                            pointBorderWidth: 1,
+                            PointHoverRadius: 5,
+                            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                            pointHoverBorderColor: "rgba(220,220,220,1)",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 1,
+                            poinHitRadius: 10,
+                            data: [65, 29, 80, 81, 59, 55, 40],
+                            spanGaps: false, 
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+            </script>
+        </div>
+    </div>
+</div> -->
+
+        

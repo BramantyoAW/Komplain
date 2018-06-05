@@ -19,19 +19,22 @@
         }
 </style>
 <br>
-<h2><b>Daftar kategori Komplain</b></h2><br>
-    <div class="container nav navbar-nav navbar-right table-responsive" >
-          <td class="nav-item active">
-          <p><a class="btn btn-success" href="<?php echo site_url();?>katkomplain/tambahkatkom">Tambah Kategori Komplain</a></p>
-          </td>
+<div class="container">
+    <div class="container">
+    <h2><b>Daftar kategori Komplain</b></h2><hr>
+        <div class="container nav navbar-nav navbar-right table-responsive" >
+            <td class="nav-item active">
+            <p><a class="btn btn-success" href="<?php echo site_url();?>katkomplain/tambahkatkom">Tambah Kategori Komplain</a></p>
+            </td>
+        </div>
     </div>
+        <div class="container">
             <table class="table table-stripped">
                 <thead>
                 <tr>
                     <th style="text-align:center">No</th>
                     <th style="text-align:center">ID Kategori Komplain</th>
                     <th style="text-align:center">Nama Kategori Komplain </th>
-                    <th style="text-align:center">Tanggal & Jam</th>
                     <th style="text-align:center" colspan="2">Aksi</th>
                 </tr>
                 </thead>
@@ -41,10 +44,9 @@
                     <td style="text-align:center"><?php echo $no++; ?></td>
                     <td style="text-align:center"><?php echo $kat->id_kat_kom;?></td>
                     <td style="text-align:center"><?php echo $kat->nama_kat_kom;?></td>
-                    <td style="text-align:center"><?php echo $kat->tanggal_kat;?></td> 
                     <td>
-                    <a type="submit" class="btn btn-warning" href="<?php echo site_url('/katkomplain/edit/'.$kat->id_kat_kom); ?>">
-                    Ubah 
+                    <a type="submit" class="btn btn-warning" href="<?php echo site_url('/katkomplain/detail/'.$kat->id_kat_kom); ?>">
+                    Detail 
                     </a>
                     </td>
                     <td width="50">
@@ -56,6 +58,8 @@
             </table>
             
             <div class="pagination-links"><?php echo $halaman;?></div><br>
+        </div>
+</div>
 
 
             

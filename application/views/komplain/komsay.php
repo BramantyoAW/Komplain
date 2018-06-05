@@ -22,8 +22,9 @@
 <br>
 <?php $this->session->userdata('user_loggedin'); ?>
 
+<div class="container">
 <h3>Daftar Komplain <b><?php echo $this->session->userdata("nama"); ?> (<?php echo $this->session->userdata("id_user"); ?>)</b></h3>
-<br>
+<hr>
             <table class="table">
                 <thead>
                 <tr>
@@ -56,3 +57,4 @@
             </table>
             
             <div class="pagination-links"><?php echo $halaman;?></div><br>
+</div>

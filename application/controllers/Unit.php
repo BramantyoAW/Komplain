@@ -31,6 +31,18 @@
             $this->load->view('unit/index', $data);
             $this->load->view('templates/footer');
         }
+
+        public function proseskom(){
+            
+            $data['detail_kom'] = $this->unit_model->get_detailkom($id_kom);
+            
+
+
+            $this->load->view('templates/header');
+            $this->load->view('unit/proseskom');
+            $this->load->view('templates/footer');
+            
+        }
        
 
         //untuk menampilkan detailkomplain
@@ -40,6 +52,7 @@
 			}
 
             $data['unit'] = $this->unit_model->get_unitkom($id_kom);
+            $data['detail_kom'] = $this->unit_model->get_detailkom($id_kom);
              
              if(empty($data['unit'])){
                  show_404();
@@ -59,14 +72,18 @@
 				redirect('users/login');
             }
 
-            $this->db->set('tanggal_ubah','NOW()',FALSE);
-            $this->unit_model->update($id_kom);
-             //setting pesan
-             $this->session->flashdata('status_edited','Komplain Berhasil Ditambah');
-             
-            redirect('unit/index');
-
-        }
-             
+            // //insert
+             $this->unit_model->insert();
+            // $msg['success'] = False;
+            // if($result){
+            //     $msg['success'] = True;
+            // } 
             
+            // echo json_encode($msg);
+            // die;
+
+            echo json_encode(array("status" => TRUE));
+        }      
+
+
     }

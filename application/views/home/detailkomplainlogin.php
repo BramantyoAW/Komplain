@@ -3,7 +3,7 @@
 
 <div class="container">
     <h1><b><?php echo $komplain['judul']; ?></b></h1>
-    <a><b> Nama Orang Komplain : <?php echo $komplain['id_user']; ?> </b> </a> <hr><br>
+    <a><b> Nama Orang Komplain : <?php echo $komplain['id_user']; ?> </b> </a> <br><br>
 
 
     <div class="row">
@@ -26,8 +26,8 @@
         </div>
     </div>
 </div>
-<br>
 
+<br>
 <div class="container">
         <div class="alert alert-dismissible alert-primary">
         <h3>Proses Komplain : <b></b></h3>

@@ -137,6 +137,7 @@
         public function detailkomplain($id_kom = NULL){
             
            $data['komplain'] = $this->komplain_model->get_kom($id_kom);
+           $data['detail_kom'] = $this->komplain_model->get_detailkom($id_kom);
            //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
             
             if(empty($data['komplain'])){

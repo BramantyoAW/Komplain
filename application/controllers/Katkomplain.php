@@ -54,8 +54,10 @@
        
 
             //vieweditdetail
-            public function edit($id_kat_kom = NULL){
+            public function detail($id_kat_kom = NULL){
                 $data['katkomplain'] = $this->katkomplain_model->get_katkomplaindetail($id_kat_kom);
+                $data['a'] = $this->katkomplain_model->get_kategoriunit($id_kat_kom);
+                $data['namaunit'] = $this->katkomplain_model->get_katmodunit($id_kat_kom);
                 //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
                  
                  if(empty($data['katkomplain'])){
@@ -65,18 +67,37 @@
                  $data['title'] = $data['katkomplain']['id_kat_kom'];
      
                  $this->load->view('templates/header');
-                 $this->load->view('katkomplain/edit', $data);
+                 $this->load->view('katkomplain/detail', $data);
                  $this->load->view('templates/footer');
                  }
                  
-                  //edit
+            //buat nambah kategori_unit
+            public function tambahkatunit(){
+                $data['kat_unit'] = $this->katkomplain_model->post_katunit();
+
+                $this->form_validation->set_rules('id_kat_kom', 'NAMA KATEGORI KOMPLAIN KOSONG', 'required');
+                $this->form_validation->set_rules('id_user', 'tidak boleh kosong nama', 'required');
+
+                if($this->form_validation->run() === FALSE){
+                    $this->load->view('templates/header');
+                    $this->load->view('katkomplain/tambahkatunit', $data);
+                    $this->load->view('templates/footer');
+        
+                } else {
+                    $this->katkomplain_model->create_katkomplain();
+
+                    //setting pesan
+                    $this->session->flashdata('katkomplain_created','Komplain Berhasil Ditambah');
+
+                redirect('katkomplain/index');
+                 }
+            }
+
+            //edit
             public function editkatkomplain(){
                 $this->katkomplain_model->edit_katkomplain($id_kat_kom);
-
                 //setting pesan
                 $this->session->flashdata('katkomplain_edited','Komplain Berhasil Ditambah');
-
-
                 redirect('katkomplain/index');
                 }
 

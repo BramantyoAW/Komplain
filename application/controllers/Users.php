@@ -81,13 +81,13 @@
 						'unit' => $unit,
 						'admin' => $admin,
 					);
-
-					$this->session->set_userdata($user_data);
-
-					// Set message
-					$this->session->set_flashdata('user_loggedin', 'You are now logged in ' .  $result->row(0)->nama );
 					
-					redirect('home');
+					$this->session->set_userdata($user_data);
+					
+					// Set message
+					$this->session->set_flashdata('user_loggedin', 'Selamat Datang ' .  $result->row(0)->nama );
+					
+					redirect('home/homelogin');
 				} else {
 					// Set message
 					$this->session->set_flashdata('login_failed', 'Login is invalid');

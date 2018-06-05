@@ -22,10 +22,9 @@
                     border: 1px #ccc solid;
         }
 </style>
-
-
-<h2><b>Daftar Komplain</b></h2>
 <br>
+<div class="container">
+    <h2><b>Daftar Komplain</b></h2>
             <table class="table">
                 <thead>
                 <tr>
@@ -54,7 +53,8 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
-                </tbody>
-            </table>
+            </tbody>
+    </table>
+</div>
             
             <div class="pagination-links"><?php echo $halaman;?></div><br>
