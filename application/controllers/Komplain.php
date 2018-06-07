@@ -151,25 +151,27 @@
             $this->load->view('templates/footer');
             }
 
+        public function searchadm() {
+            if($this->session->userdata('id_role') != 1){
+                redirect('users/login');
+            }
+            $this->load->model('komplain_model');
+            $id_kat_kom = $this->input->post('search');
 
-            // public function select($search){
+            if(isset($id_kat_kom) and !empty($id_kat_kom)){
+                $data['komplain'] = $this->komplain_model->searchadm($id_kat_kom);
+                $data['halaman'] = '';
+                $this->load->view('templates/header');
+                $this->load->view('komplain/indexadm', $data);
+                $this->load->view('templates/footer');
+               
+            }else{
+                    redirect('komplain/indexadm');
+            }
 
-            //     $this->load->model('get');
-            
-            //     if(isset($_GET ['search']) && !empty($_GET['search'])) {
-            
-            //         $search= $_GET[ 'search'];
-            //         $this->load->model('Login_model');
-            
-            //         if($this->Login_model->selectorganizer($search))
-            //         {
-            //            $this->load->view('organizer');
-            
-            //         }
-            //         else
-            //         {
-            //             redirect('admin/show');
-            //         }
-            //     }  
-            // } 
+            // $keyword = $_POST['keyword']; // you can also use $this->input->post('keyword');
+            // $this->load->model('Search_model');
+            // $data['search_result'] = $this->search_model->search_user($keyword);
+            // $this->load->view('search_result', $data);
+        }
     }

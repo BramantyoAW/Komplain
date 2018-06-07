@@ -8,6 +8,7 @@ $route['home/(:any)'] = 'home/view/$1';
 
 $route['komplain/index'] = 'komplain/index';
 $route['komplain/indexadm'] = 'komplain/indexadm';
+$route['komplain/searchadm'] = 'komplain/searchadm';
 $route['komplain/komsay'] = 'komplain/komsay';
 $route['komplain/tambahkomplain'] = 'komplain/tambahkomplain';
 $route['komplain/(:any)'] = 'komplain/view/$1';

@@ -47,17 +47,17 @@
 <div class="container">
 <h3><b>Daftar Komplain</b></h3><hr>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="container">
         <table class="table" style="border:2px solid black">
                 <thead>
                 <tr>
                     <th style="text-align:center">No</th>
-                    <th style="text-align:center">Nama </th>
-                    <th width="200" style="text-align:center">Kategori</th>
-                    <th width="160" style="text-align:center">Judul</th>
-                    <th width="180" style="text-align:center">Waktu</th>
-                    <th width="160" style="text-align:center">Status</th>
+                    <!-- <th style="text-align:left">Nama </th> -->
+                    <th width="200" style="text-align:left">Kategori</th>
+                    <th width="160" style="text-align:left">Judul</th>
+                    <th width="180" style="text-align:left">Waktu</th>
+                    <th width="160" style="text-align:left">Status</th>
                     <th widht="150" style="text-align:center">Detail</th>
                 </tr>
                 </thead>
@@ -65,14 +65,14 @@
                 <?php $no = $this->uri->segment('3') + 1; foreach($komplain as $komp) : ?>
                 <tr>
                     <td style="text-align:center"><?php echo $no++; ?></td>
-                    <td style="text-align:center"><?php echo $komp->id_user;?></td>
-                    <td style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
-                    <td style="text-align:center"><?php echo $komp->judul;?></td>
-                    <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
-                    <td style="text-align:center"><?php echo $komp->status;?></td>
-                    <td>
+                    <!-- <td style="text-align:left"><?php echo $komp->id_user;?></td> -->
+                    <td style="text-align:left"><?php echo $komp->id_kat_kom;?></td>
+                    <td style="text-align:left"><?php echo $komp->judul;?></td>
+                    <td style="text-align:left"><?php echo $komp->tanggal_kom;?></td>
+                    <td style="text-align:left"><?php echo $komp->status;?></td>
+                    <td style="text-align:center">
                     <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplainlogin/'.$komp->id_kom); ?>">
-                    Detail Komplain 
+                    Detail 
                     </a>
                     </td>
                 </tr>
@@ -85,11 +85,33 @@
     </div>    
 
 
-  <div class="col-md-4">
-    <h3>Cara Komplain :</h3>
-    <img src="<?php echo base_url();?>.\images\carakomplain2.png" alt="carakomplain" style="margin-right:10px;" width="450px" height="800px">
+  <div class="col-md-12">
+    <h3><b>Cara Komplain :</b></h3><hr>
+    <img src="<?php echo base_url();?>.\images\carakomplain2.png" alt="carakomplain" style="margin-right:10px;" width="500px" height="800px">
   </div>
   </div>
 </div>
+
+<style>
+                    .pagination-links{
+                    margin:30px 0;
+                }
+
+                .pagination-links strong{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+                }
+
+                a.pagination-link{
+                    padding: 8px 13px;
+                    margin:5px;
+                    background: #f4f4f4;
+                    border: 1px #ccc solid;
+        }
+
+        
+</style>
 
 

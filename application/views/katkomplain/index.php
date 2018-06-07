@@ -35,8 +35,8 @@
                 <thead>
                 <tr>
                     <th style="text-align:center">No</th>
-                    <th style="text-align:center">ID Kategori Komplain</th>
-                    <th style="text-align:center">Nama Kategori Komplain </th>
+                    <th style="text-align:left">ID Kategori Komplain</th>
+                    <th style="text-align:left">Nama Kategori Komplain </th>
                     <th style="text-align:center" colspan="2">Aksi</th>
                 </tr>
                 </thead>
@@ -44,14 +44,14 @@
                 <?php $no = $this->uri->segment('3') + 1; foreach($kat_kom as $kat) : ?>
                 <tr>
                     <td style="text-align:center"><?php echo $no++; ?></td>
-                    <td style="text-align:center"><?php echo $kat->id_kat_kom;?></td>
-                    <td style="text-align:center"><?php echo $kat->nama_kat_kom;?></td>
+                    <td style="text-align:left"><?php echo $kat->id_kat_kom;?></td>
+                    <td style="text-align:left"><?php echo $kat->nama_kat_kom;?></td>
                     <td>
                     <a type="submit" class="btn btn-warning" href="<?php echo site_url('/katkomplain/detail/'.$kat->id_kat_kom); ?>">
                     Detail 
                     </a>
                     </td>
-                    <td width="50">
+                    <td width="20">
                     <a type="submit" class="btn btn-danger" value="hapus" href="<?php echo site_url('/katkomplain/hapus/'.$kat->id_kat_kom); ?>"/>hapus </a>
                     </td>
                 </tr>

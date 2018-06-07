@@ -82,12 +82,16 @@ class Komplain_model extends CI_Model{
         return $this->db->insert('komplain', $data);
     }
 
-    // public function selectorganizer ($search) {
-    //     $condition = "search = '" . $search . "'";
-    //     $this->db->select('*');
-    //     $this->db->from('organizer');
-    //     $this->db->where($condition);
-    //     $query = $this->db->get();
-    //     return $result = $query->result();
-    // }          
+    public function searchadm($id_kat_kom){
+        $this->db->select('*');
+        $this->db->from('komplain');
+        $this->db->like('id_kat_kom', $id_kat_kom);
+        $query = $this->db->get();
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            //
+            return $query->result();
+        }
+    }        
 }
