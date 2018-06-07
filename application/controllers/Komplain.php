@@ -45,6 +45,8 @@
             $this->pagination->initialize($config);
    
             $data['halaman'] = $this->pagination->create_links();
+            //Dari controller di searachadm
+            $data['message'] = '';
    
             $data['komplain'] = $this->komplain_model->get_komplain($config['per_page'],$id_kom);
            
@@ -161,6 +163,7 @@
             if(isset($id_kat_kom) and !empty($id_kat_kom)){
                 $data['komplain'] = $this->komplain_model->searchadm($id_kat_kom);
                 $data['halaman'] = '';
+                $data['message'] = 'Klik tombol search kembali untuk merefresh data';
                 $this->load->view('templates/header');
                 $this->load->view('komplain/indexadm', $data);
                 $this->load->view('templates/footer');
@@ -169,9 +172,6 @@
                     redirect('komplain/indexadm');
             }
 
-            // $keyword = $_POST['keyword']; // you can also use $this->input->post('keyword');
-            // $this->load->model('Search_model');
-            // $data['search_result'] = $this->search_model->search_user($keyword);
-            // $this->load->view('search_result', $data);
+
         }
     }
