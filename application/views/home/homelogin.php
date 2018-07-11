@@ -56,8 +56,8 @@
                     <!-- <th style="text-align:left">Nama </th> -->
                     <th width="200" style="text-align:left">Kategori</th>
                     <th width="160" style="text-align:left">Judul</th>
-                    <th width="180" style="text-align:left">Waktu</th>
-                    <th width="160" style="text-align:left">Status</th>
+                    <th width="80" style="text-align:left">Waktu</th>
+                    <!-- <th width="160" style="text-align:left">Status</th> -->
                     <th widht="150" style="text-align:center">Detail</th>
                 </tr>
                 </thead>
@@ -69,7 +69,7 @@
                     <td style="text-align:left"><?php echo $komp->id_kat_kom;?></td>
                     <td style="text-align:left"><?php echo $komp->judul;?></td>
                     <td style="text-align:left"><?php echo $komp->tanggal_kom;?></td>
-                    <td style="text-align:left"><?php echo $komp->status;?></td>
+                    <!-- <td style="text-align:left"><?php echo $komp->status;?></td> -->
                     <td style="text-align:center">
                     <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplainlogin/'.$komp->id_kom); ?>">
                     Detail 
@@ -87,7 +87,7 @@
 
   <div class="col-md-12">
     <h3><b>Cara Komplain :</b></h3><hr>
-    <img src="<?php echo base_url();?>.\images\carakomplain2.png" alt="carakomplain" style="margin-right:10px;" width="500px" height="800px">
+    <img src="<?php echo base_url();?>.\images\carakomplain3.png" alt="carakomplain" style="margin-right:10px;" width="1100px" height="800px">
   </div>
   </div>
 </div>

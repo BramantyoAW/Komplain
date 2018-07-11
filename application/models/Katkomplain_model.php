@@ -42,8 +42,22 @@
         }
 
         public function get_kategoriunit($id_kat_kom){
-           return $query = $this->db->query("select u.nama from user u inner join kategori_unit ku on ku.id_user = u.id_user where ku.id_kat_kom ='$id_kat_kom'")->result();
-            
+        //    return $query = $this->db->query("select u.nama from user u inner join kategori_unit ku on ku.id_user = u.id_user where ku.id_kat_kom ='$id_kat_kom'")->result();
+           return $query = $this->db->query("select ku.id_kat_unit, u.nama from user u inner join kategori_unit ku on ku.id_user = u.id_user where ku.id_kat_kom ='$id_kat_kom'")->result();
+
+        }
+
+        // sinkronasi
+        public function get_unitdetail($id_kat_unit){
+            return $query = $this->db->query("select * from kategori_unit")->result();
+                 
+            // if($id_kat_unit === FALSE){
+            //     $query = $this->db->get('kategori_unit');
+            //     return $query->result_array();
+            // }
+            // $query = $this->db->get_where('kategori_unit',  array('id_kat_unit' => $id_kat_unit));
+            // return $query->row_array();
+
         }
 
         //untuk melihat select pada modal detail
@@ -84,12 +98,29 @@
                    
         }
 
-        //hapus unit sinkronasi
+        //hapus unit sinkronasi kategori_unit
         public function delet_unit($id_kat_unit){
             $this->db->where('id_kat_unit', $id_kat_unit);
             $this->db->delete('kategori_unit');
             return true;
+            // $this->db->from("kategori_unit");
+            // $this->db->join("kategori_unit ku", "ku.id_user = u.id_user");
+            // $this->db->where("ku.id_kat_unit", $id_kat_unit);
+            // $this->db->delete("kategori_unit");
+            // return true;
+            // return $query = $this->db->query("DELETE ku
+            // FROM user u
+            // INNER JOIN kategori_unit ku
+            // ON ku.id_user = u.id_user
+            // WHERE ku.id_kat_unit = '$id_kat_unit'")->result();
+            
+            // $this->db->delete('kategori_unit', array('id_kat_unit' => $id_kat_unit)); 
         }
+
+        //select ku.id_kat_unit, u.nama from user u inner join kategori_unit ku on ku.id_user = 
+        //u.id_user where ku.id_kat_kom ='$id_kat_kom'
+        
+        //DELETE FROM kategori_unit WHERE id_kat_unit='18';
 
         //hapus kat_kom
         public function hapus_katkomplain($id_kat_kom){

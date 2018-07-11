@@ -78,6 +78,16 @@
    });
 }
 </script>
+<script>
+function doconfirm()
+{
+    job=confirm("Apakah anda yakin menghapus UNIT pada KATEGORI ini ?");
+    if(job!=true)
+    {
+        return false;
+    }
+}
+</script>
 
 <br>
     
@@ -154,6 +164,7 @@
           <table class="table table-stripped">
             <thead>
               <tr>
+                <th style="text-align:center">id </th>
                 <th style="text-align:center">Nama </th>
                 <th style="text-align:center">Action</th>
               </tr>
@@ -162,17 +173,19 @@
             <tbody>
               <?php foreach($a as $u) : ?>
                 <tr>
+                  <td ><?php echo $u->id_kat_unit;?></td>
                   <td ><?php echo $u->nama;?></td>
                   <td style="text-align:center" width="50">
-                    <a type="submit" class="btn btn-danger" value="hapus" href="<?php site_url('katkomplain/hapusUnit'.$u->nama)?>"/><i class="fa fa-close"></i> </a>
-                    </td>
+                    <a type="submit" class="btn btn-danger" value="hapusU" href="<?php echo site_url('katkomplain/hapusU/'.$u->id_kat_unit); ?>" onClick="return doconfirm();"/>
+                    <i class="fa fa-close"></i> </a>
+                  </td>
                 </tr>
               <?php endforeach ?>
           </table>
         </div><br>
         
       <div>
-        <a class="btn btn-success" href="">Selesai</a>
+        <a type="submit" class="btn btn-success" href="<?php base_url('katkomplain/balik')?>">Selesai</a>
           <!-- <button type="submit" class="btn btn-success">Simpan</button> -->
       </div>
   </div>

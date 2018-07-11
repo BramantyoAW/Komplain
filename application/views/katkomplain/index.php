@@ -19,6 +19,17 @@
         }
 </style>
 
+<script>
+function doconfirm()
+{
+    job=confirm("Apakah anda yakin menghapus KATEGORI KOMPLAIN ini ?");
+    if(job!=true)
+    {
+        return false;
+    }
+}
+</script>
+
 
 <br>
 <div class="container">
@@ -52,7 +63,8 @@
                     </a>
                     </td>
                     <td width="20">
-                    <a type="submit" class="btn btn-danger" value="hapus" href="<?php echo site_url('/katkomplain/hapus/'.$kat->id_kat_kom); ?>"/>hapus </a>
+                    <a type="submit" class="btn btn-danger" value="hapus" href="<?php echo site_url('/katkomplain/hapus/'.$kat->id_kat_kom); ?>" onClick="return doconfirm();"/>
+                    hapus </a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

@@ -58,6 +58,8 @@
                 $data['katkomplain'] = $this->katkomplain_model->get_katkomplaindetail($id_kat_kom);
                 $data['a'] = $this->katkomplain_model->get_kategoriunit($id_kat_kom);
                 $data['namaunit'] = $this->katkomplain_model->get_katmodunit($id_kat_kom);
+                // $data['ud'] = $this->katkomplain_model->get_unitdetail($id_kat_unit);
+                // $data['unitdetail'] = $this->katkomplain_model->get_unitdetail($id_kat_unit);
                 //$data['kat_kom'] = $this->komplain_model->get_katkom(); - mau menampilkan nama kategori komplain
                  
                  if(empty($data['katkomplain'])){
@@ -103,21 +105,29 @@
                 $this->load->view('katkomplain/index', $data);
                 $this->load->view('templates/footer');
                 }
-
-            public function hapusUnit($id_kat_unit){
+            
+            // hapus sinkronasi unit
+            public function hapusU($id_kat_unit){
                 $this->katkomplain_model->delet_unit($id_kat_unit);
+                // echo("controller"+$id_kat_unit);
     
                 //setting pesan
-                $this->session->flashdata('katkomplain_deleted','Komplain Berhasil Ditambah');
+                // $this->session->flashdata('katkomplain_deleted','Komplain Berhasil Ditambah');
     
+                // redirect('katkomplain/detail', $id_kat_kom);
+                // echo json_encode(array("status" => TRUE));
+                // $url = $_SERVER['REQUEST_URI'];  
+  
+                // header("Refresh: 5; URL=$url"); 
                 redirect('katkomplain/index');
                 }  
-
+            
+            // hapus kategori komplain
             public function hapus($id_kat_kom){
                 $this->katkomplain_model->hapus_katkomplain($id_kat_kom);
 
                  //setting pesan
-                 $this->session->flashdata('katkomplain_deleted','Komplain Berhasil Ditambah');
+                //  $this->session->flashdata('katkomplain_deleted','Komplain Berhasil Ditambah');
 
                 redirect('katkomplain/index');
                 }

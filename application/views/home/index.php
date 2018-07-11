@@ -20,15 +20,19 @@
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
   </ul>
  
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?php echo base_url();?>.\images\ukdw1.jpg" alt="Los Angeles" width="1100" height="250">
+      <img src="<?php echo base_url();?>.\images\ukdw1.jpg" alt="komplain1" width="1100" height="250">
     </div>
     <div class="carousel-item">
-      <img src="<?php echo base_url();?>.\images\ukdw2.jpg" alt="Chicago" width="1100" height="250">
+      <img src="<?php echo base_url();?>.\images\corousel4.png" alt="komplain2" width="1100" height="250">
+    </div>
+    <div class="carousel-item">
+      <img src="<?php echo base_url();?>.\images\corousel6.png" alt="komplain2" width="1100" height="250">
     </div>
   </div>
   
@@ -39,10 +43,13 @@
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>  
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>  
 </div><br>
 
 <div class="container">
-<h1>Daftar Komplain</h1><hr>
+<h1><b>Daftar Komplain</b></h1><hr>
 
 
   <div class="row">
@@ -56,10 +63,10 @@
                     <th style="text-align:center">No</th>
                     <!-- <th style="text-align:center">Nama </th> -->
                     <th width="200" style="text-align:left">Kategori</th>
-                    <th width="160" style="text-align:left">Judul</th>
-                    <th width="100" style="text-align:left">Waktu</th>
-                    <th width="160" style="text-align:left">Status</th>
-                    <th widht="150" style="text-align:center">Detail</th>
+                    <th width="300" style="text-align:left">Judul</th>
+                    <th width="180" style="text-align:center">Waktu</th>
+                    <!-- <th width="160" style="text-align:left">Status</th> -->
+                    <th widht="200" style="text-align:center">Detail</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -70,7 +77,7 @@
                     <td style="text-align:left"><?php echo $komp->id_kat_kom;?></td>
                     <td style="text-align:left"><?php echo $komp->judul;?></td>
                     <td style="text-align:left"><?php echo $komp->tanggal_kom;?></td>
-                    <td style="text-align:left"><?php echo $komp->status;?></td>
+                    <!-- <td style="text-align:left"><?php echo $komp->status;?></td> -->
                     <td style="text-align:center">
                     <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplain/'.$komp->id_kom); ?>">
                     Detail
@@ -91,10 +98,10 @@
 
   <div class="col-md-12">
     <h3><b>Cara Komplain :</b></h3><hr>
-    <img src="<?php echo base_url();?>.\images\carakomplain2.png" alt="carakomplain" style="margin-right:10px;" width="450px" height="800px">
+    <p style="text-align:center"><img src="<?php echo base_url();?>.\images\CaraKomplain5.png" alt="carakomplain" style="margin-right:12 px;" align="" width="1000px" height="1000px"></p>
   </div>
 
-  </div>
+  </div><br><hr>
 </div>
 
 
