@@ -8,13 +8,17 @@
 <style>
   /* Make the image fully responsive */
   .carousel-inner img {
+      
       width: 100%;
-      height: 50%;
+      height: 62%;
   }
   </style>
 
-
-<div id="demo" class="carousel slide" data-ride="carousel">
+<br>
+<div class="container">
+<div id="demo" class="carousel slide;" data-ride="carousel">
+  <div class="row">
+  <div class="col-md-12">
 
   <!-- Indicators -->
   <ul class="carousel-indicators">
@@ -46,6 +50,9 @@
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>  
+</div>
+</div>
+</div>
 </div><br>
 
 <div class="container">
@@ -98,7 +105,7 @@
 
   <div class="col-md-12">
     <h3><b>Cara Komplain :</b></h3><hr>
-    <p style="text-align:center"><img src="<?php echo base_url();?>.\images\CaraKomplain5.png" alt="carakomplain" style="margin-right:12 px;" align="" width="1000px" height="1000px"></p>
+    <p style="text-align:left"><img src="<?php echo base_url();?>.\images\CaraKomplain6.png" alt="carakomplain" style="margin-right:12 px;" align="" width="700px" height="1527px"></p>
   </div>
 
   </div><br><hr>

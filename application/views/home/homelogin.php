@@ -12,28 +12,36 @@
   /* Make the image fully responsive */
   .carousel-inner img {
       width: 100%;
-      height: 50%;
+      height: 62%;
   }
   </style>
 
-<div id="demo" class="carousel slide" data-ride="carousel">
+
+<br>
+<div class="container">
+<div id="demo" class="carousel slide;" data-ride="carousel">
+  <div class="row">
+  <div class="col-md-12">
 
   <!-- Indicators -->
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
   </ul>
  
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?php echo base_url();?>.\images\ukdw1.jpg" alt="Los Angeles" width="1100" height="500">
+      <img src="<?php echo base_url();?>.\images\ukdw1.jpg" alt="komplain1" width="1100" height="250">
     </div>
     <div class="carousel-item">
-      <img src="<?php echo base_url();?>.\images\ukdw2.jpg" alt="Chicago" width="1100" height="500">
+      <img src="<?php echo base_url();?>.\images\corousel4.png" alt="komplain2" width="1100" height="250">
+    </div>
+    <div class="carousel-item">
+      <img src="<?php echo base_url();?>.\images\corousel6.png" alt="komplain2" width="1100" height="250">
     </div>
   </div>
-
   
   <!-- Left and right controls -->
   <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -41,7 +49,13 @@
   </a>
   <a class="carousel-control-next" href="#demo" data-slide="next">
     <span class="carousel-control-next-icon"></span>
-  </a>
+  </a>  
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>  
+</div>
+</div>
+</div>
 </div><br>
 
 <div class="container">
@@ -87,7 +101,7 @@
 
   <div class="col-md-12">
     <h3><b>Cara Komplain :</b></h3><hr>
-    <img src="<?php echo base_url();?>.\images\carakomplain3.png" alt="carakomplain" style="margin-right:10px;" width="1100px" height="800px">
+    <p style="text-align:left"><img src="<?php echo base_url();?>.\images\CaraKomplain6.png" alt="carakomplain" style="margin-right:12 px;" align="" width="700px" height="1527px"></p>
   </div>
   </div>
 </div>
