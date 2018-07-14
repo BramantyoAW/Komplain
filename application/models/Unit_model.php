@@ -47,6 +47,15 @@ class Unit_model extends CI_Model{
     }  
    }
 
+//    public function edit_komplain(){
+//        $data = array(
+//            'id_kom' => $this->input->post('id_kom'),
+//            'status' => $this->input->post('status')
+//        );
+//        $this->db->where('komplain', $this->input->post('id'));
+//        return $this->db->update('komplain', $data);
+//    }
+
    //untuk melihat detail komplain yang sudah di ubah unit
    public function get_detailkom($id_kom){
     return $query = $this->db->query("select * from detail_kom where id_kom='$id_kom'")->result();

@@ -19,6 +19,8 @@
                     // ); 
 
                     $data['data']= $this->dashboard_model->get_chart_data();
+                    $data['line']= $this->dashboard_model->get_chart_dataLine();
+                    $data['pie']= $this->dashboard_model->get_chart_dataPie();
                     
 
                     $this->load->view('templates/header');

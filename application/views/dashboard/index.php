@@ -70,17 +70,26 @@
     
 
         <div class="col-sm-6"><br>
-        <canvas id="myChart2" style="width: 508px; height: 400px;  border:1px solid #000000;"></canvas>
+        <canvas id="myChart2" style="width: 508px; height: 300px;  border:1px solid #000000;"></canvas>
+
+        <?php
+        foreach($line as $a){
+            $date[] = $a->tanggal;
+            $jumlah[] = (float)$a->jumlah;
+            // $count[] = $data->count('id_kat_kom');
+            // $STATUS[] = (float) $data->STATUS;
+        }
+      ?>
             
             <script>
             var ctx = document.getElementById("myChart2");
             var myChart2 = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ["Januari", "Febuari", "March", "April", "May","Juni","July"],
+                    labels: <?php echo json_encode($date); ?>,
                     datasets: [
                         {
-                            label: "Data Komplain Bulanan",
+                            label: "Data Komplain Perminggu",
                             fill: false,
                             lineTension: 0.1,
                             backgroundColor: "rgba(75,192,192,0,4)",
@@ -97,8 +106,8 @@
                             pointHoverBorderColor: "rgba(220,220,220,1)",
                             pointHoverBorderWidth: 2,
                             pointRadius: 1,
-                            poinHitRadius: 10,
-                            data: [65, 29, 80, 81, 59, 55, 40],
+                            poinHitRadius: 1,
+                            data: <?php echo json_encode($jumlah);?>,
                             spanGaps: false, 
                         }
                     ]
@@ -119,6 +128,14 @@
 
     <div class="col-sm-6"><br>
         <canvas id="myChart3" style="width: 508px; height: 400px;  border:1px solid #000000;"></canvas>
+        <?php
+        foreach($pie as $p){
+            $stat[] = $p->status;
+            $jum[] = (float)$p->jumlah;
+            // $count[] = $data->count('id_kat_kom');
+            // $STATUS[] = (float) $data->STATUS;
+        }
+      ?>
             <script>
                 var ctx = document.getElementById("myChart3");
                 var myChart3 = new Chart(ctx,{
@@ -127,11 +144,11 @@
                         datasets: [{
                             data: [10, 20, 30]
                         }],
-                        labels: ['Red','Yellow','Blue'],
+                        labels: <?php echo json_encode($stat);?>,
                         datasets: [{
                             label: "Population (millions)",
                             backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            data: [2478,5267,734,784,433]
+                            data: <?php echo json_encode($jumlah);?>
                           }]
                         },
                         options: {
@@ -145,4 +162,3 @@
             </script>
     </div>
 </div>
-</body>

@@ -74,6 +74,7 @@
 
             // //insert
              $this->unit_model->insert();
+            //  $this->unit_model->edit_komplain();
             // $msg['success'] = False;
             // if($result){
             //     $msg['success'] = True;
