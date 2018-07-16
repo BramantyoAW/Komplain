@@ -69,22 +69,22 @@
                 <tr>
                     <th style="text-align:center">No</th>
                     <!-- <th style="text-align:center">Nama </th> -->
-                    <th width="200" style="text-align:left">Kategori</th>
-                    <th width="300" style="text-align:left">Judul</th>
-                    <th width="180" style="text-align:center">Waktu</th>
-                    <!-- <th width="160" style="text-align:left">Status</th> -->
-                    <th widht="200" style="text-align:center">Detail</th>
+                    <th width="140" style="text-align:left">ID Komplain</th>
+                    <th width="160" style="text-align:left">Judul Komplain</th>
+                    <th width="150" style="text-align:center">Tanggal & Jam</th>
+                    <th width="180" style="text-align:left">Status Komplain</th>
+                    <th widht="150" style="text-align:center">Detail Komplain</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php $no = $this->uri->segment('3') + 1; foreach($komplain as $komp) : ?>
                 <tr>
                     <td style="text-align:center"><?php echo $no++; ?></td>
-                    <!-- <td style="text-align:center"><?php echo $komp->id_user;?></td> -->
+                    <td style="text-align:center"hidden><?php echo $komp->id_user;?></td>
                     <td style="text-align:left"><?php echo $komp->id_kat_kom;?></td>
                     <td style="text-align:left"><?php echo $komp->judul;?></td>
-                    <td style="text-align:left"><?php echo $komp->tanggal_kom;?></td>
-                    <!-- <td style="text-align:left"><?php echo $komp->status;?></td> -->
+                    <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
+                    <td style="text-align:left"><?php echo $komp->status;?></td>
                     <td style="text-align:center">
                     <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplain/'.$komp->id_kom); ?>">
                     Detail
@@ -98,17 +98,15 @@
           <div class="pagination-links"><?php echo $halaman;?>
             </div>
         </div><br>
-
-
     </div>    
 
 
   <div class="col-md-12">
     <h3><b>Cara Komplain :</b></h3><hr>
-    <p style="text-align:left"><img src="<?php echo base_url();?>.\images\CaraKomplain6.png" alt="carakomplain" style="margin-right:12 px;" align="" width="700px" height="1527px"></p>
+    <p style="text-align:center"><img src="<?php echo base_url();?>.\images\CaraKomplain8.png" alt="carakomplain" style="margin-right:12 px;" align="" width="1000px" height="250px"></p>
   </div>
 
-  </div><br><hr>
+  </div><hr>
 </div>
 
 

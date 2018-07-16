@@ -134,7 +134,7 @@
                     <div class="controls">
                         <select class="form-control" name="status">
                             <option value="Proses">Proses</option>
-                            <option value="Komplain Tidak Dapat Diproses">Komplain Tidak Dapat Diproses</option>
+                            <option value="Tidak Dapat Diproses">Tidak Dapat Diproses</option>
                             <option value="Selesai">Selesai</option>
                         </select>
                     </div>

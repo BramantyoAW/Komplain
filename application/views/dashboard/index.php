@@ -11,7 +11,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>css2/Chart.min.js"></script>
 
     <br>
-    <canvas id="myChart1" style="width: 400px; height: 400px; border:1px solid #000000;"></canvas>
+    <canvas id="myChart1" style="width: 400px; height: 400px; border:0px solid #000000; background-color:#D0D3D5;"></canvas>
       <script type="text/javascript">
       
       <?php
@@ -69,8 +69,10 @@
     </div> -->
     
 
-        <div class="col-sm-6"><br>
-        <canvas id="myChart2" style="width: 508px; height: 300px;  border:1px solid #000000;"></canvas>
+        <div class="col-sm-6">
+        <div rowspan="2">
+        <br> 
+        <canvas id="myChart2" style="width: 400px; height: 192px; border:0px solid #000000; background-color:#D0D3D5;"></canvas>
 
         <?php
         foreach($line as $a){
@@ -82,6 +84,8 @@
       ?>
             
             <script>
+            
+            Chart.defaults.global.hover.mode = 'nearest';
             var ctx = document.getElementById("myChart2");
             var myChart2 = new Chart(ctx, {
                 type: 'line',
@@ -89,8 +93,9 @@
                     labels: <?php echo json_encode($date); ?>,
                     datasets: [
                         {
-                            label: "Data Komplain Perminggu",
+                            label: "Data Komplain Harian",
                             fill: false,
+                            boolean: false,
                             lineTension: 0.1,
                             backgroundColor: "rgba(75,192,192,0,4)",
                             borderColor: "rgba(75,192,192,1)",
@@ -105,60 +110,83 @@
                             pointHoverBackgroundColor: "rgba(75,192,192,1)",
                             pointHoverBorderColor: "rgba(220,220,220,1)",
                             pointHoverBorderWidth: 2,
-                            pointRadius: 1,
-                            poinHitRadius: 1,
+                            pointRadius: 2,
+                            poinHitRadius: 2,
                             data: <?php echo json_encode($jumlah);?>,
                             spanGaps: false, 
                         }
                     ]
                 },
                 options: {
+                    legend: {
+                        label: {
+                            fontColor: 'rgb(255, 99, 132)',
+                            defaultfontsize:12,
+                            
+                        },
+                        display:{
+                            boolean:false
+                        }
+                    },
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero:true
+                                beginAtZero:true,
+                                tension: 1,
+                                stacked: true,
+                                // userCallback: function(label, index, labels) {
+                                // // when the floored value is the same as the value we have a whole number
+                                // if (Math.floor(label) === label) {
+                                //     return label;
+                                // }
+                                fixedStepSize: 1
                             }
                         }]
+                    },
+                    animation: {
+                        duration: 0
+                    },
+                    hover: {
+                    // Overrides the global setting
+                    mode: 'index'
                     }
                 }
             });
             </script>
-    </div>
+<br>
 
-
-    <div class="col-sm-6"><br>
-        <canvas id="myChart3" style="width: 508px; height: 400px;  border:1px solid #000000;"></canvas>
+        <canvas id="myChart3" style="width: 400px; height: 192px; border:0px solid #000000; background-color:#D0D3D5;"></canvas>
         <?php
         foreach($pie as $p){
             $stat[] = $p->status;
             $jum[] = (float)$p->jumlah;
-            // $count[] = $data->count('id_kat_kom');
-            // $STATUS[] = (float) $data->STATUS;
         }
       ?>
+      
             <script>
                 var ctx = document.getElementById("myChart3");
                 var myChart3 = new Chart(ctx,{
                     type: 'pie',
                     data:{
                         datasets: [{
-                            data: [10, 20, 30]
+                            data: []
                         }],
                         labels: <?php echo json_encode($stat);?>,
                         datasets: [{
-                            label: "Population (millions)",
-                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                            data: <?php echo json_encode($jumlah);?>
+                            label: "Status Komplain Keseluruhan",
+                            backgroundColor: ["#FF0800", "#2398FE","#3cba9f","#FFFF33","#c45850"] ,
+                            data: <?php echo json_encode($jum);?>
                           }]
                         },
                         options: {
                           title: {
                             display: true,
-                            text: 'Predicted world population (millions) in 2050'
+                            text: 'Status Komplain Keseluruhan'
                           }
                         }
                     });
 
             </script>
+    </div>
     </div>
 </div>
