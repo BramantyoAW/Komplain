@@ -7,7 +7,7 @@ class Home_model extends CI_Model{
 
     //melihat data komplain dengan pagination
     public function get_komplain($number, $offset){
-        $this->db->order_by('tanggal_kom');
+        $this->db->order_by('tanggal_kom' , "DESC");
         return $query = $this->db->get('komplain',$number,$offset)->result();    
         }
 

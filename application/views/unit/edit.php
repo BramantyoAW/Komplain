@@ -209,12 +209,12 @@
         <h3>Proses Komplain : <b></b></h3>
         <div class="alert alert-dismissible alert-light">
         <?php foreach($detail_kom as $u) : ?>
-            <div class="panel-heading">Proses Komplain</div>
+            <div class="panel-heading">Deskripsi Komplain</div>
             <div class="panel-body">
-                <li>Diproses oleh    :<b><?php echo $u->id_user;?></b></li>
-                <li>Status Komplain  :<i><b><u><?php echo $u->status;?></u></b></i></li>
-                <li>Diproses Tanggal :<b><?php echo $u->tgl_update;?></b></li>
-                <li>Catatan Proses   :<b> <?php echo $u->keterangan;?></b></li><hr>
+                <li>Diproses oleh    :  <b><?php echo $u->id_user;?></b></li>
+                <li>Status Komplain  :  <i><b><u><?php echo $u->status;?></u></b></i></li>
+                <li>Diproses Tanggal :  <b><?php echo $u->tgl_update;?></b></li>
+                <li>Catatan Proses   :  <b><?php echo $u->keterangan;?></b></li><hr>
             </div>
         <?php endforeach ?>
         </div>

@@ -5,12 +5,11 @@ class Unit_model extends CI_Model{
     }
 
     public function get_unit($number, $offset){
-
         $id_user = $_SESSION['id_user'];
-        $this->db->order_by('tanggal_kom');
+        // $this->db->order_by('tanggal_kom' , "DESC");
         // return $query = $this->db->get('komplain',$number,$offset)->result();
         //By Session 
-        return $query = $this->db->query('select distinct k.id_kom,k.id_user, k.id_kat_kom, k.tanggal_kom, k.deskripsi, k.gambar_komplain, k.solusi, k.status, k.judul, k.lokasi from komplain k, kategori_unit ku WHERE k.id_kat_kom IN( SELECT distinct ku.id_kat_kom FROM kategori_unit ku where ku.id_user ="'.$id_user.'")')->result();
+        return $query = $this->db->query('select distinct k.id_kom,k.id_user, k.id_kat_kom, k.tanggal_kom, k.deskripsi, k.gambar_komplain, k.solusi, k.status, k.judul, k.lokasi from komplain k, kategori_unit ku WHERE k.id_kat_kom IN( SELECT distinct ku.id_kat_kom FROM kategori_unit ku where ku.id_user ="'.$id_user.'") order by tanggal_kom DESC',$number,$offset)->result();
 
     }
 

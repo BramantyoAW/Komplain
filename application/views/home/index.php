@@ -69,11 +69,11 @@
                 <tr>
                     <th style="text-align:center">No</th>
                     <!-- <th style="text-align:center">Nama </th> -->
-                    <th width="140" style="text-align:left">ID Komplain</th>
-                    <th width="160" style="text-align:left">Judul Komplain</th>
-                    <th width="150" style="text-align:center">Tanggal & Jam</th>
-                    <th width="180" style="text-align:left">Status Komplain</th>
-                    <th widht="150" style="text-align:center">Detail Komplain</th>
+                    <th style="text-align:center">ID Komplain</th>
+                    <th style="text-align:center">Judul Komplain</th>
+                    <th style="text-align:center">Tanggal & Jam</th>
+                    <th style="text-align:center">Status Komplain</th>
+                    <th style="text-align:center">Detail Komplain</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,13 +81,13 @@
                 <tr>
                     <td style="text-align:center"><?php echo $no++; ?></td>
                     <td style="text-align:center"hidden><?php echo $komp->id_user;?></td>
-                    <td style="text-align:left"><?php echo $komp->id_kat_kom;?></td>
+                    <td width="150" style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
                     <td style="text-align:left"><?php echo $komp->judul;?></td>
                     <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
-                    <td style="text-align:left"><?php echo $komp->status;?></td>
+                    <td width="190" style="text-align:center"><b><?php echo $komp->status;?></b></td>
                     <td style="text-align:center">
                     <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplain/'.$komp->id_kom); ?>">
-                    Detail
+                    Detail Komplain
                     </a>
                     </td>
                 </tr>

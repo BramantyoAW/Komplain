@@ -25,7 +25,7 @@ class Komplain_model extends CI_Model{
     public function get_komsay($number, $offset){
     $id_user = $_SESSION['id_user'];
     // $q = "SELECT * FROM KOMPLAIN WHERE id_user='$id_user' ORDER BY id_kom";
-    return $query = $this->db->get("KOMPLAIN WHERE id_user='$id_user' ORDER BY id_kom",$number,$offset)->result();
+    return $query = $this->db->get("KOMPLAIN WHERE id_user='$id_user' ORDER BY tanggal_kom desc ",$number,$offset)->result();
     }
 
     //penghitungan tabel pagination

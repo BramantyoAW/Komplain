@@ -174,7 +174,7 @@
                         labels: <?php echo json_encode($stat);?>,
                         datasets: [{
                             label: "Status Komplain Keseluruhan",
-                            backgroundColor: ["#FF0800", "#2398FE","#3cba9f","#FFFF33","#c45850"] ,
+                            backgroundColor: ["#FFFF33", "#2398FE","#3cba9f","#FF0800","#c45850"] ,
                             data: <?php echo json_encode($jum);?>
                           }]
                         },
@@ -188,5 +188,6 @@
 
             </script>
     </div>
+    <!--    -->
     </div>
 </div>
