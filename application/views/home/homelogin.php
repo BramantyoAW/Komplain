@@ -83,7 +83,20 @@
                 <td width="150" style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
                 <td style="text-align:left"><?php echo $komp->judul;?></td>
                 <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
-                <td width="190" style="text-align:center"><b><?php echo $komp->status;?></b></td>
+                <td width="190" style="text-align:left"><?php
+                        if($komp->status == 'Proses'){
+                          echo '<span class="badge badge-info">Proses</span>';
+                        } else if($komp->status == 'Selesai'){
+                            echo '<span class="badge badge-success">Selesai</span>';
+                        } else if($komp->status == 'Tidak Dapat Diproses'){
+                            echo '<span class="badge badge-danger">Tidak Dapat Diproses</span>';
+                        }else if($komp->status == 'Pengajuan'){
+                            echo'<span class="badge badge-warning">Pengajuan</span>';
+                        } else {
+                        echo'<span class="badge badge-dark">';
+                        echo $komp->status;
+                        echo '</span>';
+                      };?></td>
                 <td style="text-align:center">
                 <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplain/'.$komp->id_kom); ?>">
                 Detail Komplain
