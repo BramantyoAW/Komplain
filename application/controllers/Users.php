@@ -2,8 +2,18 @@
     class Users extends CI_Controller{
 		function __construct(){
 			parent::__construct();
-			
+		
 		}
+		
+		function backButtonHandle(){ // nama fungsinya juga bisa d ganti "suka-suka lo" XD (y)
+			$CI =& get_instance();
+			$CI->load->library(array('output'));
+			$CI->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
+			$CI->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+			$CI->output->set_header('Pragma: no-cache');
+			$CI->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		   }
+
 		public function register(){
 			$data['tittle'] = 'Akun Baru';
 
@@ -87,6 +97,10 @@
 					// Set message
 					$this->session->set_flashdata('user_loggedin', 'Selamat Datang ' .  $result->row(0)->nama );
 					
+					if(!isset($_SESSION['id_role'])){
+						redirect('users/login');
+					}
+							
 					redirect('home/homelogin');
 				} else {
 					// Set message
@@ -100,7 +114,8 @@
         // Log user out
 		public function logout(){
 			// Unset user data
-			// $this->session->unset_userdata('logged_in');
+			session_start(); 
+			$this->session->unset_userdata('logged_in');
 			$this->session->unset_userdata(array());
 			$this->session->unset_userdata('id_user');
 			$this->session->unset_userdata('id_role');
@@ -108,8 +123,7 @@
 			$this->session->unset_userdata('unit');
 			$this->session->unset_userdata('admin');
 			$this->session->sess_destroy();
-			session_start(); 
-			session_destroy();
+			session_destroy($_SESSION);
 			unset($_SESSION);
 			session_regenerate_id(true);
 
@@ -124,15 +138,11 @@
 			// $this->session->sess_destroy();
 		
 			redirect('users/login');
+			$this->load->helper('back'); // helper yg di atas
+   
+			backButtonHandle(); // ni fungsinya yg d panggil
 		}
 
 
-
-
-
-
-
-
-
-
+		
     }

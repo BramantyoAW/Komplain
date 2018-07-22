@@ -1,4 +1,8 @@
 <link rel="stylesheet" href="<?php echo base_url();?>css2/bootstrap.min.css">
+
+<?php if($this->session->flashdata('user_loggedin')): ?>
+    <?php echo '<p class="alert alert-primary">'.$this->session->flashdata('user_loggedin').' </p>'; ?>
+  <?php endif; ?>
 <style>
                     .pagination-links{
                     margin:30px 0;

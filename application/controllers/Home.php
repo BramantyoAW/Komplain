@@ -2,8 +2,33 @@
     class Home extends CI_Controller{
         function __construct(){
             parent::__construct();
-            $this->load->helper(array('url'));
-            $this->load->model('home_model');
+            $this->load->helper(array('url', 'back'));
+            // $this->load->model('home_model');
+            if($this->session->userdata('id_role') == 1){
+                redirect('dashboard');
+                
+            }
+           
+            if($this->session->userdata('id_role') == 2){
+                redirect('unit/index');
+            }
+            // buat tidak bisa di back
+            if(!isset($_SESSION['id_role'])){
+                redirect('users/login');
+            }
+
+            if(!isset($_SESSION['id_role'])){
+                redirect('users/login');
+            }
+
+            if(!isset($_SESSION['id_user'])){
+                redirect('users/login');
+            }
+
+            if(!isset($_SESSION['nama'])){
+                redirect('users/login');
+            }
+            // --- batas tdk bisa di back
     }
 
     public function index($id_kom = NULL){
@@ -52,16 +77,16 @@
          }
 
 
-    public function homelogin($id_kom = NULL){       
+    public function homelogin($id_kom = NULL){
+        
         if($this->session->userdata('id_role') == 1){
             redirect('dashboard');
-            
         }
-        
+
         if($this->session->userdata('id_role') == 2){
             redirect('unit/index');
         }
-        
+
         $data['title'] = 'Halaman Home';
     
             $this->load->library('pagination');

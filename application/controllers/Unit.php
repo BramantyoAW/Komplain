@@ -2,6 +2,7 @@
     class Unit extends CI_Controller{
         function __construct(){
             parent::__construct();
+            $this->load->helper(array('url'));
             if($this->session->userdata('id_role') == 1){
                 redirect('users/login');
             }
@@ -9,18 +10,38 @@
             if($this->session->userdata('id_role') == 3){
                 redirect('users/login');
             } 
-            $this->load->helper(array('url'));
             $this->load->model('unit_model');
+
+
+            if(!isset($_SESSION['id_role'])){
+                redirect('users/login');
+            }
+
+             // buat tidak bisa di back
+
+            //  if ($_SESSION['logged_in']) {
+            //     header('Location: index');
+            // }
+
+            if(!isset($_SESSION['id_role'])){
+                redirect('users/login');
+            }
+
+            if(!isset($_SESSION['id_role'])){
+                redirect('users/login');
+            }
+
+            if(!isset($_SESSION['id_user'])){
+                redirect('users/login');
+            }
+
+            if(!isset($_SESSION['nama'])){
+                redirect('users/login');
+            }
+            // --- batas tdk bisa di back
         }
 
         public function index($id = NULL){
-            if($this->session->userdata('id_role') == 1){
-                redirect('users/login');
-            }
-            
-            if($this->session->userdata('id_role') == 3){
-                redirect('users/login');
-            } 
          $this->load->library('pagination');
          $config['base_url'] = base_url().'unit/index';
          $config['total_rows'] = $this->unit_model->jumlah_data();
