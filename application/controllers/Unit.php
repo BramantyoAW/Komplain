@@ -2,14 +2,25 @@
     class Unit extends CI_Controller{
         function __construct(){
             parent::__construct();
-            if($this->session->userdata('logged_in') != true){
+            if($this->session->userdata('id_role') == 1){
                 redirect('users/login');
             }
+            
+            if($this->session->userdata('id_role') == 3){
+                redirect('users/login');
+            } 
             $this->load->helper(array('url'));
             $this->load->model('unit_model');
         }
 
         public function index($id = NULL){
+            if($this->session->userdata('id_role') == 1){
+                redirect('users/login');
+            }
+            
+            if($this->session->userdata('id_role') == 3){
+                redirect('users/login');
+            } 
          $this->load->library('pagination');
          $config['base_url'] = base_url().'unit/index';
          $config['total_rows'] = $this->unit_model->jumlah_data();
@@ -47,9 +58,13 @@
 
         //untuk menampilkan detailkomplain
         public function edit($id_kom = NULL){
-            if(!$this->session->userdata('logged_in')){
-				redirect('users/login');
-			}
+            if($this->session->userdata('id_role') == 1){
+                redirect('users/login');
+            }
+            
+            if($this->session->userdata('id_role') == 3){
+                redirect('users/login');
+            } 
 
             $data['unit'] = $this->unit_model->get_unitkom($id_kom);
             $data['detail_kom'] = $this->unit_model->get_detailkom($id_kom);

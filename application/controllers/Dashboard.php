@@ -27,5 +27,7 @@
                     $this->load->view('dashboard/index', $data);
                     $this->load->view('templates/footer');
 
+                    
+
                 }
             }

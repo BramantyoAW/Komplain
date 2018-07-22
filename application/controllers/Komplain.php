@@ -92,16 +92,16 @@
             //tambahan select
             $data['kat_kom'] = $this->komplain_model->get_katkom();
 
-            $this->form_validation->set_rules('id_user', 'Id_user', 'required');
+            // $this->form_validation->set_rules('id_user', 'Id_user', 'required');
             $this->form_validation->set_rules('id_kat_kom', 'Id_Kat_Kom', 'required');
             //$this->form_validation->set_rules('tanggal_kom', 'Tanggal_Kom', 'required');
-            $this->db->set('tanggal_kom','NOW()',FALSE);
+            // $this->db->set('tanggal_kom','NOW()',FALSE);
             //$this->form_validation->set_rules('tanggal_kom','Tanggal_Kom','required');
             $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
-            $this->form_validation->set_rules('status', 'Status', 'required');
+            // $this->form_validation->set_rules('status', 'Status', 'required');
             $this->form_validation->set_rules('judul', 'Judul', 'required');
             $this->form_validation->set_rules('lokasi', 'lokasi', 'required');
-            $this->form_validation->set_rules('solusi', 'Solusi');
+            // $this->form_validation->set_rules('solusi', 'Solusi');
         
 
             if($this->form_validation->run() === FALSE){
@@ -132,7 +132,7 @@
                 //setting pesan
                 $this->session->flashdata('komplain_created','Komplain Berhasil Ditambah');
 
-                redirect('komplain/index');
+                redirect('home/homelogin');
             } 
         }
 

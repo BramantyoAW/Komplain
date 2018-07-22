@@ -64,7 +64,7 @@ function doconfirm()
                     </td>
                     <td width="20">
                     <a type="submit" class="btn btn-danger" value="hapus" href="<?php echo site_url('/katkomplain/hapus/'.$kat->id_kat_kom); ?>" onClick="return doconfirm();"/>
-                    hapus </a>
+                    Hapus </a>
                     </td>
                 </tr>
                 <?php endforeach; ?>

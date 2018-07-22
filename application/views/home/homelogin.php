@@ -78,12 +78,12 @@
             <tbody>
             <?php $no = $this->uri->segment('3') + 1; foreach($komplain as $komp) : ?>
             <tr>
-                <td style="text-align:center"><?php echo $no++; ?></td>
-                <td style="text-align:center"hidden><?php echo $komp->id_user;?></td>
-                <td width="150" style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
-                <td style="text-align:left"><?php echo $komp->judul;?></td>
-                <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
-                <td width="190" style="text-align:left"><?php
+                    <td style="text-align:center"><?php echo $no++; ?></td>
+                    <td style="text-align:center"hidden><?php echo $komp->id_user;?></td>
+                    <td width="120" style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
+                    <td width="200" style="text-align:left"><?php echo word_limiter($komp->judul, 5);?></td>
+                    <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
+                    <td width="160" style="text-align:center"><?php
                         if($komp->status == 'Proses'){
                           echo '<span class="badge badge-info">Proses</span>';
                         } else if($komp->status == 'Selesai'){
@@ -97,12 +97,12 @@
                         echo $komp->status;
                         echo '</span>';
                       };?></td>
-                <td style="text-align:center">
-                <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplain/'.$komp->id_kom); ?>">
-                Detail Komplain
-                </a>
-                </td>
-            </tr>
+                    <td style="text-align:center">
+                    <a type="submit" class="btn btn-info" href="<?php echo site_url('/home/detailkomplainlogin/'.$komp->id_kom); ?>">
+                    Detail Komplain
+                    </a>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
                 </tbody>
       </table>

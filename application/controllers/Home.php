@@ -21,7 +21,10 @@
 
         $data['halaman'] = $this->pagination->create_links();
 
+        // $data['update'] = $this->home_model->get_tglupdate();
         $data['komplain'] = $this->home_model->get_komplain($config['per_page'],$id_kom);
+      
+
 
         //menggunakan header khusus
         $this->load->view('templates/headerkhusus');
@@ -52,6 +55,7 @@
     public function homelogin($id_kom = NULL){       
         if($this->session->userdata('id_role') == 1){
             redirect('dashboard');
+            
         }
         
         if($this->session->userdata('id_role') == 2){
@@ -77,8 +81,7 @@
             $this->load->view('home/homelogin', $data);
             $this->load->view('templates/footer');
     
-    $this->session->set_flashdata('user_loggedin');
-    }
+        }
 
     //detailkomplain jika sudah login
     public function detailkomplainlogin($id_kom = NULL){

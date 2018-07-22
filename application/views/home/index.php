@@ -71,20 +71,21 @@
                     <!-- <th style="text-align:center">Nama </th> -->
                     <th style="text-align:center">ID Komplain</th>
                     <th style="text-align:center">Judul Komplain</th>
-                    <th style="text-align:center">Tanggal & Jam</th>
+                    <th style="text-align:center">Tanggal Komplain</th>
                     <th style="text-align:left">Status Komplain</th>
+                    <!-- <th style="text-align:center">Tanggal Update</th> -->
                     <th style="text-align:center">Detail Komplain</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php $no = $this->uri->segment('3') + 1; foreach($komplain as $komp) : ?>
+                <?php $no = $this->uri->segment('3') + 1; foreach($komplain as $komp) :?>
                 <tr>
                     <td style="text-align:center"><?php echo $no++; ?></td>
                     <td style="text-align:center"hidden><?php echo $komp->id_user;?></td>
-                    <td width="150" style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
-                    <td style="text-align:left"><?php echo $komp->judul;?></td>
+                    <td width="120" style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
+                    <td width="200" style="text-align:left"><?php echo word_limiter($komp->judul, 5);?></td>
                     <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
-                    <td width="190" style="text-align:left"><?php
+                    <td width="160" style="text-align:center"><?php
                         if($komp->status == 'Proses'){
                           echo '<span class="badge badge-info">Proses</span>';
                         } else if($komp->status == 'Selesai'){

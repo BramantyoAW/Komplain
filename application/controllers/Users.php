@@ -90,7 +90,7 @@
 					redirect('home/homelogin');
 				} else {
 					// Set message
-					$this->session->set_flashdata('login_failed', 'Login is invalid');
+					$this->session->set_flashdata('login_failed', 'Cek Kembali Username atau Password Anda');
 
 					redirect('users/login');
 				}		
@@ -100,12 +100,27 @@
         // Log user out
 		public function logout(){
 			// Unset user data
-			$this->session->unset_userdata('logged_in');
-			$this->session->unset_userdata('user_id');
+			// $this->session->unset_userdata('logged_in');
+			$this->session->unset_userdata(array());
+			$this->session->unset_userdata('id_user');
 			$this->session->unset_userdata('id_role');
+			$this->session->unset_userdata('mahasiswa');
+			$this->session->unset_userdata('unit');
+			$this->session->unset_userdata('admin');
+			$this->session->sess_destroy();
+			session_start(); 
+			session_destroy();
+			unset($_SESSION);
+			session_regenerate_id(true);
+
+			// $this->session->unset_userdata('id_user');
+			// $this->session->unset_userdata('id_role');
+			// $this->session->unset_userdata('nama');
+			// $this->session->sess_destroy();
+			// session_regenerate_id(true);
 		
 			// Set message
-			$this->session->set_flashdata('user_loggedout', 'You are now logged out');
+			$this->session->set_flashdata('user_loggedout', 'Anda Berhasil Keluar');
 			// $this->session->sess_destroy();
 		
 			redirect('users/login');

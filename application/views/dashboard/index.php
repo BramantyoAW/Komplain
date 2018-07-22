@@ -1,5 +1,8 @@
 <!-- <body> -->
     
+<?php if($this->session->flashdata('user_loggedin')): ?>
+    <?php echo '<p class="alert alert-primary">'.$this->session->flashdata('user_loggedin').' </p>'; ?>
+  <?php endif; ?>
 
 <div class="container"><br>
 <h2><b>REPORT DASHBOARD KOMPLAIN KESELURUHAN</b></h2><hr>

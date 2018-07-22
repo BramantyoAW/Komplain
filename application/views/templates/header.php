@@ -53,7 +53,7 @@
           <?php if($this->session->userdata('id_role') != 3): ?>
           <?php else:?>
               <li class="nav-item active">
-                <a class="nav-link" href="<?php echo base_url();?>komplain/index" hidden><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
+                <a class="nav-link" href="<?php echo base_url();?>home/homelogin" hidden><b>Daftar Komplain<span class="sr-only">(current)</b></span></a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url();?>komplain/komsay" ><b>Komplain Saya</b></a>

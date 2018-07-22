@@ -8,9 +8,14 @@ class Home_model extends CI_Model{
     //melihat data komplain dengan pagination
     public function get_komplain($number, $offset){
         $this->db->order_by('tanggal_kom' , "DESC");
-        return $query = $this->db->get('komplain',$number,$offset)->result();    
+        return $query = $this->db->get('komplain',$number,$offset)->result();   
+        
+        // return $query = $this->db->query("select k.id_kom, k.id_user, k.id_kat_kom, k.tanggal_kom, k.tanggal_ubah, k.deskripsi, k.gambar_komplain, k.solusi, k.status, k.judul, k.lokasi, d.tgl_update from komplain k inner join detail_kom d on k.id_kom = d.id_kom order by tanggal_kom desc",$number,$offset)->result();
         }
 
+    // public function get_tglupdate($id_kom){
+    //     return $query = $this->db->query("'select tgl_update from detail_kom where id_kom ='$id_kom'")->result();
+    // }
         
     //penghitungan tabel pagination
     function jumlah_data(){

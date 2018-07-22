@@ -6,19 +6,19 @@
         <div class="container">
         <h2><b><?= $title; ?></b></h2>
             <div class="control-group" >
-              <label >Id Kategori Komplain</label>
+              <label >ID Kategori Komplain <font color="red" style="font-size:14px">*Wajib Diisi</font></label>
               <div class="controls">
-                <input type="text" class='form-control' name="id_kat_kom" placeholder="Contoh : INR01 ( INFRASTRUKTUR 1 )">
+                <input type="text" class='form-control' name="id_kat_kom" placeholder="Contoh : INR01 untuk ( INFRASTRUKTUR 1 )" required>
               </div>
             </div> <br>
             <div class="control-group" >
-              <label >Nama Kategori Komplain</label>
+              <label >Nama Kategori Komplain <font color="red" style="font-size:14px">*Wajib Diisi</font></label>
               <div class="controls">
-                <input type="text" class='form-control' name="nama_kat_kom" placeholder="">
+                <input type="text" class='form-control' name="nama_kat_kom" placeholder="Contoh : Bangunan Universitas Kristen Duta Wacana" required>
               </div>
             </div> <br>
             <div class="control-group">
-              <label>Tanggal Komplain</label>
+              <label>Tanggal Tambah Kategori </label>
               <div class="controls">
                 <input type="text" name="tanggal_kat"  class='form-control' value="<?php echo date('Y-m-d');?>" readonly>
               </div>

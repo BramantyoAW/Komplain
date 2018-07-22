@@ -23,7 +23,7 @@
 <?php $this->session->userdata('user_loggedin'); ?>
 
 <div class="container">
-<h3>Daftar Komplain <b><?php echo $this->session->userdata("nama"); ?> (<?php echo $this->session->userdata("id_user"); ?>)</b></h3>
+<h3>Daftar Komplain <b><?php echo $this->session->userdata("nama"); ?> ( <?php echo $this->session->userdata("id_user"); ?> )</b></h3>
 <hr>
             <table class="table">
                 <thead>
@@ -31,10 +31,10 @@
                     <th style="text-align:center">No</th>
                     <th style="text-align:center">NIM </th>
                     <th width="170" style="text-align:center">ID Kategori</th>
-                    <th width="160" style="text-align:center">Judul Komplain</th>
+                    <th width="150" style="text-align:center">Judul Komplain</th>
                     <th width="180" style="text-align:center">Tanggal & Jam</th>
-                    <th width="160">Status Komplain</th>
-                    <th widht="150">Detail Komplain</th>
+                    <th width="160" style="text-align:center">Status Komplain</th>
+                    <th widht="150" style="text-align:center">Detail Komplain</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,9 +43,23 @@
                     <td style="text-align:center"><?php echo $no++; ?></td>
                     <td style="text-align:center"><?php echo $komp->id_user;?>
                     <td style="text-align:center"><?php echo $komp->id_kat_kom;?></td>
-                    <td style="text-align:center"><?php echo $komp->judul;?></td>
+                    <td style="text-align:left"><?php echo word_limiter($komp->judul, 5);?></td>
                     <td style="text-align:center"><?php echo $komp->tanggal_kom;?></td>
-                    <td style="text-align:center"><?php echo $komp->status;?></td>
+                    <td width="190" style="text-align:center"><?php
+                            if($komp->status == 'Proses'){
+                            echo '<span class="badge badge-info">Proses</span>';
+                            } else if($komp->status == 'Selesai'){
+                                echo '<span class="badge badge-success">Selesai</span>';
+                            } else if($komp->status == 'Tidak Dapat Diproses'){
+                                echo '<span class="badge badge-danger">Tidak Dapat Diproses</span>';
+                            }else if($komp->status == 'Pengajuan'){
+                                echo'<span class="badge badge-warning">Pengajuan</span>';
+                            } else {
+                            echo'<span class="badge badge-dark">';
+                            echo $komp->status;
+                            echo '</span>';
+                        };?>
+                    </td>                    
                     <td>
                     <a type="submit" class="btn btn-info" href="<?php echo site_url('/komplain/detailkomplain/'.$komp->id_kom); ?>">
                     Detail Komplain 
@@ -56,5 +70,5 @@
                 </tbody>
             </table>
             
-            <div class="pagination-links"><?php echo $halaman;?></div><br>
+            <!-- <div class="pagination-links"><?php echo $halaman;?></div><br> -->
 </div>

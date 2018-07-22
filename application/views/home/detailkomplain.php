@@ -3,6 +3,7 @@
 
 
 <div class="container">
+    <br>
     <h1><b><?php echo $komplain['judul']; ?></b></h1>
     <a><b> Nama Orang Komplain : <?php echo $komplain['id_user']; ?> </b> </a> <br><br>
 
@@ -36,10 +37,24 @@
         <?php foreach($detail_kom as $u) : ?>
             <div class="panel-heading">Proses Komplain</div>
             <div class="panel-body">
-                <li>Diproses oleh    :<b><?php echo $u->id_user;?></b></li>
-                <li>Status Komplain  :<i><b><u><?php echo $u->status;?></u></b></i></li>
-                <li>Diproses Tanggal :<b><?php echo $u->tgl_update;?></b></li>
-                <li>Catatan Proses   :<b> <?php echo $u->keterangan;?></b></li><hr>
+                <li>Diproses oleh    : <b><?php echo $u->id_user;?></b></li>
+                <li>Status Komplain  : <i><?php 
+                if($u->status == 'Proses'){
+                    echo '<span class="badge badge-info">Proses</span>';
+                  } else if($u->status == 'Selesai'){
+                      echo '<span class="badge badge-success">Selesai</span>';
+                  } else if($u->status == 'Tidak Dapat Diproses'){
+                      echo '<span class="badge badge-danger">Tidak Dapat Diproses</span>';
+                  }else if($u->status == 'Pengajuan'){
+                      echo'<span class="badge badge-warning">Pengajuan</span>';
+                  } else {
+                  echo'<span class="badge badge-dark">';
+                  echo $u->status;
+                  echo '</span>';
+                  };?></i>
+                </li>
+                <li>Diproses Tanggal : <b><?php echo $u->tgl_update;?></b></li>
+                <li>Catatan Proses   : <b> <?php echo $u->keterangan;?></b></li><hr>
             </div>
         <?php endforeach ?>
         </div>
