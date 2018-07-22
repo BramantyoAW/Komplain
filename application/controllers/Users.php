@@ -98,7 +98,7 @@
 					$this->session->set_flashdata('user_loggedin', 'Selamat Datang ' .  $result->row(0)->nama );
 					
 					if(!isset($_SESSION['id_role'])){
-						redirect('users/login');
+						redirect('home');
 					}
 							
 					redirect('home/homelogin');
