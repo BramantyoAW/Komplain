@@ -29,11 +29,12 @@
     <h2>Daftar Komplain <b><?php echo $this->session->userdata("nama"); ?> ( <?php echo $this->session->userdata("id_user"); ?> )</b></h2>
     <form class="form-inline my-2 my-lg-0" role="form" action="<?php echo base_url().'komplain/searchadm';?>" method="post">
     <div class="col-md-4" style="margin-left:780px">
-    <input class="form-control mr-sm-2" name="search" id="search" type="text" placeholder="Cari ID Kategori Komplain">
+    <input class="form-control mr-sm-2" name="search" id="search" type="text" placeholder="Cari IDKategori / Status">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" name="submit">Search</button>
       </div><br>
       <p class="col-md-6" style="margin-left:740px"><font color="#FF0000"><?php echo $message;?></font></p>
       </form><br>
+
             <table class="table">
                 <thead>
                 <tr>

@@ -117,6 +117,13 @@
 
     //detailkomplain jika sudah login
     public function detailkomplainlogin($id_kom = NULL){
+        if(!isset($_SESSION['id_user'])){
+            redirect('users/login');
+        }
+
+     if(!isset($_SESSION['nama'])){
+            redirect('users/login');
+        }
             
         $data['komplain'] = $this->home_model->get_kom($id_kom);
         $data['detail_kom'] = $this->home_model->get_detailkom($id_kom);

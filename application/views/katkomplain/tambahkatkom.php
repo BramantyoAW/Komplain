@@ -8,7 +8,7 @@
             <div class="control-group" >
               <label >ID Kategori Komplain <font color="red" style="font-size:14px">*Wajib Diisi</font></label>
               <div class="controls">
-                <input type="text" class='form-control' name="id_kat_kom" placeholder="Contoh : INR01 untuk ( INFRASTRUKTUR 1 )" required>
+                <input type="text" class='form-control' name="id_kat_kom" placeholder="Contoh : INR01 untuk ( INFRASTRUKTUR 1 ) *Maksimal 5 Kata" maxlength="5" required>
               </div>
             </div> <br>
             <div class="control-group" >

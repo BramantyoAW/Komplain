@@ -151,6 +151,10 @@
             $this->load->view('templates/header');
             $this->load->view('komplain/detailkomplain', $data);
             $this->load->view('templates/footer');
+
+            if(!isset($_SESSION['id_role'])){
+                redirect('users/login');
+            }
             }
 
         public function searchadm() {
@@ -158,20 +162,24 @@
                 redirect('users/login');
             }
             $this->load->model('komplain_model');
-            $id_kat_kom = $this->input->post('search');
+            $keyword = $this->input->post('search');
+            // $status = $this->input->post('search');
 
-            if(isset($id_kat_kom) and !empty($id_kat_kom)){
-                $data['komplain'] = $this->komplain_model->searchadm($id_kat_kom);
+            if(isset($keyword) and !empty($keyword)){
+                $data['komplain'] = $this->komplain_model->searchadm($keyword);
                 $data['halaman'] = '';
                 $data['message'] = 'Klik tombol search kembali untuk merefresh data';
                 $this->load->view('templates/header');
                 $this->load->view('komplain/indexadm', $data);
                 $this->load->view('templates/footer');
                
-            }else{
-                    redirect('komplain/indexadm');
+            }else {
+                redirect('komplain/indexadm');
             }
 
-
-        }
+            
+            if(!isset($_SESSION['id_role'])){
+                redirect('home');
+            }
+        }  
     }

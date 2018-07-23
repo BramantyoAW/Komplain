@@ -82,16 +82,30 @@ class Komplain_model extends CI_Model{
         return $this->db->insert('komplain', $data);
     }
 
-    public function searchadm($id_kat_kom){
-        $this->db->select('*');
-        $this->db->from('komplain');
-        $this->db->like('id_kat_kom', $id_kat_kom);
-        $query = $this->db->get();
+    public function searchadm($keyword){
+        // $this->db->select('*');
+        // $this->db->from('komplain');
+        // $this->db->like('id_kat_kom', $keyword);
+        // $this->db->like('status', $keyword);
+        $query = $this->db->query("select * from komplain where id_kat_kom like '%$keyword%' or status like '%$keyword%'");
         if($query->num_rows() > 0){
             return $query->result();
         }else{
             //
             return $query->result();
         }
-    }        
+    }
+    
+    // public function searchadmm($status){
+    //     $this->db->select('*');
+    //     $this->db->from('komplain');
+    //     $this->db->like('status', $status);
+    //     $query = $this->db->get();
+    //     if($query->num_rows() > 0){
+    //         return $query->result();
+    //     }else{
+    //         //
+    //         return $query->result();
+    //     }
+    // }        
 }

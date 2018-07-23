@@ -31,7 +31,7 @@
             <div class="control-group" >
               <label>Judul Komplain <font color="red" style="font-size:14px">*Wajib Diisi</font></label>
               <div class="controls">
-                <input type="text" class='form-control' name="judul" placeholder="" required >
+                <input type="text" class='form-control' name="judul" placeholder="Maksimal Judul 50 Kata" maxlength="50" required >
               </div>
             </div> <br>
             <div class="control-group" >

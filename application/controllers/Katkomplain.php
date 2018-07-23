@@ -33,7 +33,7 @@
         public function tambahkatkom(){
             $data['title'] = 'Tambah Kategori Komplain';
 
-            $this->form_validation->set_rules('id_kat_kom', 'ID KATEGORI KOMPLAIN KOSONG','required');
+            $this->form_validation->set_rules('id_kat_kom', 'id kategori komplain','required|is_unique[kat_kom.id_kat_kom]');
             $this->form_validation->set_rules('nama_kat_kom', 'NAMA KATEGORI KOMPLAIN KOSONG', 'required');
 
             if($this->form_validation->run() === FALSE){
@@ -41,14 +41,23 @@
                 $this->load->view('katkomplain/tambahkatkom', $data);
                 $this->load->view('templates/footer');
      
-            } else {
+            } else{
                 $this->katkomplain_model->create_katkomplain();
+                
 
                 //setting pesan
                 $this->session->flashdata('katkomplain_created','Komplain Berhasil Ditambah');
 
                redirect('katkomplain/index');
             }
+            // } else {
+            //     $this->session->set_flashdata('message', 
+			// 	'<div class="alert alert-warning alert-dismissible" role="alert">
+            //         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            //         Mohon Maaf NIP sudah Terdaftar...!!!
+            //     </div>');
+			// redirect('katkomplain/tambahkatkom','refresh');
+            // }
         }
 
        
