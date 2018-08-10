@@ -4,7 +4,7 @@
 <div class="container">
 <br>
     <h1><b><?php echo $komplain['judul']; ?></b></h1>
-    <a><b> Nama Orang Komplain : <?php echo $komplain['id_user']; ?> </b> </a> <hr><br>
+    <a><b> Nim  : <?php echo $komplain['id_user']; ?> </b> </a> <hr><br>
 
 
     <div class="row">

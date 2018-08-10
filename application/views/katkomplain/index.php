@@ -34,7 +34,7 @@ function doconfirm()
 <br>
 <div class="container">
     <div class="container">
-    <h2><b>Daftar kategori Komplain</b></h2><hr>
+    <h2><b>Daftar Kategori Komplain</b></h2><hr>
         <div class="container nav navbar-nav navbar-right table-responsive" >
             <td class="nav-item active">
             <p><a class="btn btn-success" href="<?php echo site_url();?>katkomplain/tambahkatkom">Tambah Kategori Komplain</a></p>

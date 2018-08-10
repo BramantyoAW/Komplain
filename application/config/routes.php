@@ -27,7 +27,8 @@ $route['katkomplain/(:any)'] = 'katkomplain/view/$1';
 $route['dashboard'] = 'dashboard/index';
 $route['dashboard/(:any)'] = 'dashboard/view/$1';
 
-$route['default_controller'] = 'home/index';
+// Revisi pendadaran pengubahan halaman awal menjadi login
+$route['default_controller'] = 'users/login';
 $route['(:any)'] = 'home/index/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

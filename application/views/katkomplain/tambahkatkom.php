@@ -14,7 +14,7 @@
             <div class="control-group" >
               <label >Nama Kategori Komplain <font color="red" style="font-size:14px">*Wajib Diisi</font></label>
               <div class="controls">
-                <input type="text" class='form-control' name="nama_kat_kom" placeholder="Contoh : Bangunan Universitas Kristen Duta Wacana" required>
+                <input type="text" class='form-control' name="nama_kat_kom" placeholder="Contoh : Bangunan Universitas Kristen Duta Wacana" maxlength="50" required>
               </div>
             </div> <br>
             <div class="control-group">

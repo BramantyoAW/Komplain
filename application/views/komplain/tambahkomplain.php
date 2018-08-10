@@ -1,6 +1,16 @@
 <link rel="stylesheet" href="<?php echo base_url();?>css2/bootstrap.min.css">
 <!-- Script dibawah untuk alert eror pada textarea ckeditor -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script> 
+<script>
+function doconfirm()
+{
+    job=confirm("Apakah Anda Yakin Akan Menambah Serta Bertanggung Jawab Pada Komplain ? *Komplain Tidak Bisa Dihapus");
+    if(job!=true)
+    {
+        return false;
+    }
+}
+</script>
 
 <br>
 
@@ -107,7 +117,7 @@
               </div> <br> -->
             </div><br>
             <div>
-              <button type="submit" class="btn btn-success">Tambah Komplain</button>
+              <button type="submit" class="btn btn-success" onClick="return doconfirm();">Tambah Komplain</button>
             </div>
       </div>
   </form>

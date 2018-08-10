@@ -93,7 +93,8 @@
 <h2><b><?php echo $unit['judul']; ?></b></h2><a href="<?php echo base_url();?>unit/proseskom" hidden>Proses Komplain</a><br>
 <!-- ID TYPE HIDDEN SANGAT PENTING UNTUK UPDATE/DELET ANJNG 3 HARI GA KETEMU2 CUMA GARA2 ITU -->
 <input type="hidden" name="id_kom" value="<?php echo $unit['id_kom']; ?>"> 
-<a><b> Nama Orang Komplain : <?php echo $unit['id_user']; ?> </b> </a> <br><br> 
+<a><b> Nim : <?php echo $unit['id_user']; ?> </b> </a> <br><br> 
+<hr>
 
 
 <!-- modal start -->
@@ -108,7 +109,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Tambah Unit :</h4>
+          <h4 class="modal-title">Proses Komplain :</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <!-- Modal body -->

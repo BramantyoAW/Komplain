@@ -5,7 +5,8 @@
 <div class="container">
     <br>
     <h1><b><?php echo $komplain['judul']; ?></b></h1>
-    <a><b> Nama Orang Komplain : <?php echo $komplain['id_user']; ?> </b> </a> <br><br>
+    <!-- <a><b> Nama Orang Komplain : <?php echo $komplain['id_user']; ?> </b> </a>  -->
+    <br><br>
 
 
     <div class="row">
