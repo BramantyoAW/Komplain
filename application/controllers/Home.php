@@ -32,6 +32,25 @@
     }
 
     public function index($id_kom = NULL){
+        if(!isset($_SESSION['id_user'])){
+            redirect('users/login');
+        }
+
+     if(!isset($_SESSION['nama'])){
+            redirect('users/login');
+        }
+
+        
+        if($this->session->userdata('id_role') == 1){
+            redirect('dashboard');
+        }
+
+        if($this->session->userdata('id_role') == 2){
+            redirect('unit/index');
+        }
+        if($this->session->userdata('id_role') == 3){
+            redirect('unit/index');
+        }
         $data['title'] = 'Halaman Home';
 
         $this->load->library('pagination');
